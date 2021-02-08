@@ -35,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
         FragmentAdapter fragmentAdapter = new FragmentAdapter(getSupportFragmentManager());
         viewPager.setAdapter(fragmentAdapter);
         tabLayout.setupWithViewPager(viewPager);
+        tabLayout.getTabAt(0).setText("Coffee");
+        tabLayout.getTabAt(1).setText("Beverages");
+        tabLayout.getTabAt(2).setText("Accessories");
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);

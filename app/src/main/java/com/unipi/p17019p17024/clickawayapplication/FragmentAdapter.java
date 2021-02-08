@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 public class FragmentAdapter extends FragmentStatePagerAdapter {
-    String[] tabsArray = new String[] {"Coffee", "Beverages", "Accessories"};
+    String[] tabsArray = new String[] {"CoffeeFragment", "BeveragesFragment", "AccessoriesFragment"};
     int tabNumber = 3;
 
     public FragmentAdapter(@NonNull FragmentManager fm) {
@@ -25,14 +25,14 @@ public class FragmentAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                Coffee coffee = new Coffee();
-                return coffee;
+                CoffeeFragment coffeeFragment = new CoffeeFragment();
+                return coffeeFragment;
             case 1:
-                Beverages beverages = new Beverages();
-                return beverages;
+                BeveragesFragment beveragesFragment = new BeveragesFragment();
+                return beveragesFragment;
             case 2:
-                Accessories accessories = new Accessories();
-                return accessories;
+                AccessoriesFragment accessoriesFragment = new AccessoriesFragment();
+                return accessoriesFragment;
         }
 
         return null;
