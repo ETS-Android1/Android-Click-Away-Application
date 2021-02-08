@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "260821382515",
+    "project_id": "clickawayapplication",
+    "storage_bucket": "clickawayapplication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260821382515:android:4598db5e860243ad0fc106",
+        "android_client_info": {
+          "package_name": "com.unipi.p17019p17024.clickawayapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "260821382515-js57h6d0vftmn0v5jnm24a7pftn222mc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpajJTMYtWFt81AFdNNY8xd1dLMB59At4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "260821382515-js57h6d0vftmn0v5jnm24a7pftn222mc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
