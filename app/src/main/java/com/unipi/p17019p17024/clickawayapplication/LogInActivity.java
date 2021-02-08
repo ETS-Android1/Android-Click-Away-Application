@@ -7,7 +7,7 @@ import android.os.Bundle;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LogInActivity extends AppCompatActivity {
-
+    //
     //User Authentication
     public FirebaseAuth mAuth;
 
