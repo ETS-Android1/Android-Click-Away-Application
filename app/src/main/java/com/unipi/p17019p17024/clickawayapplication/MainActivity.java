@@ -29,15 +29,15 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        //TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        //ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
-        FragmentAdapter fragmentAdapter = new FragmentAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(fragmentAdapter);
-        tabLayout.setupWithViewPager(viewPager);
-        tabLayout.getTabAt(0).setText("Coffee");
-        tabLayout.getTabAt(1).setText("Beverages");
-        tabLayout.getTabAt(2).setText("Accessories");
+        //FragmentAdapter fragmentAdapter = new FragmentAdapter(getSupportFragmentManager());
+        //viewPager.setAdapter(fragmentAdapter);
+        //tabLayout.setupWithViewPager(viewPager);
+        //tabLayout.getTabAt(0).setText("Coffee");
+        //tabLayout.getTabAt(1).setText("Beverages");
+        //tabLayout.getTabAt(2).setText("Accessories");
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
