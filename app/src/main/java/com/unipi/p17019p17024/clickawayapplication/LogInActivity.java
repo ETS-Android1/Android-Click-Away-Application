@@ -16,7 +16,7 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class LogInActivity extends AppCompatActivity {
     EditText editText1,editText2,editText3;
-    Button button1,button2,button3;
+    Button button1,button2,button3,button4;
     TextView textView1,textView2;
 
     //User Authentication
@@ -36,6 +36,7 @@ public class LogInActivity extends AppCompatActivity {
         button1 = findViewById(R.id.button1);
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
+        button4 = findViewById(R.id.button4);
         textView1 = findViewById(R.id.textView1);
         textView2 = findViewById(R.id.textView2);
 
@@ -44,6 +45,7 @@ public class LogInActivity extends AppCompatActivity {
 
 
         button3.setVisibility(View.INVISIBLE);
+        button4.setVisibility(View.INVISIBLE);
 
     }
 
@@ -60,6 +62,7 @@ public class LogInActivity extends AppCompatActivity {
                             createUsername(editText3.getText().toString(), currentUser);
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             intent.putExtra("userID", currentUser.getUid());
+                            intent.putExtra("email", currentUser.getEmail());
                             intent.putExtra("username",currentUser.getDisplayName());
                             startActivity(intent);
                         }
@@ -77,8 +80,21 @@ public class LogInActivity extends AppCompatActivity {
         button1.setVisibility(View.INVISIBLE);
         button2.setVisibility(View.INVISIBLE);
         button3.setVisibility(View.VISIBLE);
+        button4.setVisibility(View.VISIBLE);
         textView2.setVisibility(View.INVISIBLE);
         textView1.setText("Enter your credentials");
+    }
+
+    public void goBack(View view){
+        editText1.setHint("Enter email");
+        editText2.setHint("Enter password");
+        editText3.setVisibility(View.VISIBLE);
+        button1.setVisibility(View.VISIBLE);
+        button2.setVisibility(View.VISIBLE);
+        button3.setVisibility(View.INVISIBLE);
+        button4.setVisibility(View.INVISIBLE);
+        textView2.setVisibility(View.VISIBLE);
+        textView1.setText("   Create an account");
     }
 
 
@@ -91,6 +107,7 @@ public class LogInActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Log-in successful!", Toast.LENGTH_LONG).show();
                             Intent intent2 = new Intent(getApplicationContext(), MainActivity.class);
                             intent2.putExtra("userID", currentUser.getUid());
+                            intent2.putExtra("email", currentUser.getEmail());
                             intent2.putExtra("username",currentUser.getDisplayName());
                             startActivity(intent2);
                         } else {

@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.unipi.p17019p17024.clickawayapplication.R;
 
-public class GalleryFragment extends Fragment {
+public class MapFragment extends Fragment {
 
-    private GalleryViewModel galleryViewModel;
+    private MapViewModel mapViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_gallery, container, false);
+        mapViewModel =
+                new ViewModelProvider(this).get(MapViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_map, container, false);
         final TextView textView = root.findViewById(R.id.text_gallery);
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        mapViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

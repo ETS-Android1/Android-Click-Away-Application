@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.unipi.p17019p17024.clickawayapplication.R;
 
-public class SlideshowFragment extends Fragment {
+public class AboutFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
+    private AboutViewModel aboutViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
+        aboutViewModel =
+                new ViewModelProvider(this).get(AboutViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_about, container, false);
         final TextView textView = root.findViewById(R.id.text_slideshow);
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        aboutViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
