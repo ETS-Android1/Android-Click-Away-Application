@@ -1,12 +1,23 @@
 package com.unipi.p17019p17024.clickawayapplication;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +25,15 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class CoffeeFragment extends Fragment {
+
+
+
+    private View coffeeView;
+    private RecyclerView myCoffeeRecyclerViewList;
+
+    private DatabaseReference coffeeRef;
+
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +79,83 @@ public class CoffeeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_coffee, container, false);
+        coffeeView = inflater.inflate(R.layout.fragment_coffee, container, false);
+
+        myCoffeeRecyclerViewList = (RecyclerView) coffeeView.findViewById(R.id.coffeeRecyclerList);
+        myCoffeeRecyclerViewList.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        coffeeRef = FirebaseDatabase.getInstance().getReference().child("Products").child("Coffee");
+
+
+        return coffeeView;
     }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+
+        FirebaseRecyclerOptions options =
+                new FirebaseRecyclerOptions.Builder<Product>()
+                .setQuery(coffeeRef, Product.class)
+                .build();
+
+        FirebaseRecyclerAdapter<Product, ProductViewHolder> adapter
+                = new FirebaseRecyclerAdapter<Product, ProductViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull Product model)
+            {
+                String coffeeIDs = getRef(position).getKey();
+
+                coffeeRef.child(coffeeIDs).addValueEventListener(new ValueEventListener()
+                {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String cName = snapshot.child("name").getValue().toString();
+                        String cType = snapshot.child("type").getValue().toString();
+                        String cPrice = snapshot.child("price").getValue().toString();
+
+                        holder.coffeeName.setText(cName);
+                        holder.coffeeType.setText(cType);
+                        holder.coffeePrice.setText(cPrice);
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+
+            @NonNull
+            @Override
+            public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.coffee_display_layout, parent, false);
+                ProductViewHolder viewHolder = new ProductViewHolder(view);
+                return  viewHolder;
+            }
+        };
+
+        myCoffeeRecyclerViewList.setAdapter(adapter);
+        adapter.startListening();
+    }
+
+
+
+    public static class ProductViewHolder extends RecyclerView.ViewHolder {
+
+        TextView coffeeName, coffeeType, coffeePrice;
+
+        public ProductViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            coffeeName = itemView.findViewById(R.id.coffee_name);
+            coffeeType = itemView.findViewById(R.id.coffee_type);
+            coffeePrice = itemView.findViewById(R.id.coffee_price);
+        }
+
+    }
+
+
+
 }

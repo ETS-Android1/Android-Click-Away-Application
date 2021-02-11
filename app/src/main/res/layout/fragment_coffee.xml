@@ -6,10 +6,8 @@
     tools:context=".CoffeeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/coffeeRecyclerList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Create Coffee List"
-        android:textSize="24sp" />
-
+        android:layout_height="match_parent" />
 </FrameLayout>

@@ -5,37 +5,37 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.Menu;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.ButtonBarLayout;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.viewpager.widget.ViewPager;
-
 
 public class MainActivity extends AppCompatActivity implements LocationListener {
     Button button1;
     //String userID, username,email;
+
+    //
+    //Fixed userID
+    //
+    String userID = "ELznDdlK6wSZ3ArkDttTpONurRS2";
+
     TextView textView1,textView2;
 
     LocationManager locationManager;
@@ -105,7 +105,13 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     public void shoppingCartOnClick(MenuItem menuItem){
         Intent intent = new Intent(getApplicationContext(), ShoppingCartActivity.class);
-        intent.putExtra("userID", currentUser.getUid());
+        //intent.putExtra("userID", currentUser.getUid());
+
+        //
+        //Fixed userID
+        //
+        intent.putExtra("userID", userID);
+
         startActivity(intent);
     }
     public void favoritesOnClick(MenuItem menuItem){
