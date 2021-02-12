@@ -1,12 +1,26 @@
 package com.unipi.p17019p17024.clickawayapplication;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +28,10 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class BeveragesFragment extends Fragment {
+
+    private View beveragesView;
+    private RecyclerView myBeveragesRecyclerViewList;
+    private DatabaseReference beveragesRef;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +77,96 @@ public class BeveragesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_beverages, container, false);
+        beveragesView = inflater.inflate(R.layout.fragment_beverages, container, false);
+
+        myBeveragesRecyclerViewList = (RecyclerView) beveragesView.findViewById(R.id.beveragesRecyclerList);
+        myBeveragesRecyclerViewList.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        beveragesRef = FirebaseDatabase.getInstance().getReference().child("Products").child("Beverages");
+
+        return beveragesView;
     }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+
+        FirebaseRecyclerOptions options =
+                new FirebaseRecyclerOptions.Builder<Product>()
+                        .setQuery(beveragesRef, Product.class)
+                        .build();
+
+        FirebaseRecyclerAdapter<Product, BeveragesFragment.ProductViewHolder> adapter
+                = new FirebaseRecyclerAdapter<Product, BeveragesFragment.ProductViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull BeveragesFragment.ProductViewHolder holder, int position, @NonNull Product model)
+            {
+                String beveragesIDs = getRef(position).getKey();
+
+                beveragesRef.child(beveragesIDs).addValueEventListener(new ValueEventListener()
+                {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.hasChild("image")) {
+                            String bImage = snapshot.child("image").getValue().toString();
+
+                            String bName = snapshot.child("name").getValue().toString();
+                            String bType = snapshot.child("type").getValue().toString();
+                            String bPrice = snapshot.child("price").getValue().toString();
+
+                            //Picasso.get().load(bImage).placeholder(R.drawable.ic_product_image).into(holder.beveragesImage);
+                            Picasso.with(getActivity()).load(bImage).placeholder(R.drawable.ic_product_image).into(holder.beveragesImage);
+
+                            holder.beveragesName.setText(bName);
+                            holder.beveragesType.setText(bType);
+                            holder.beveragesPrice.setText(bPrice);
+                        }
+                        else {
+                            String bName = snapshot.child("name").getValue().toString();
+                            String bType = snapshot.child("type").getValue().toString();
+                            String bPrice = snapshot.child("price").getValue().toString();
+
+                            holder.beveragesName.setText(bName);
+                            holder.beveragesType.setText(bType);
+                            holder.beveragesPrice.setText(bPrice);
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+
+            @NonNull
+            @Override
+            public BeveragesFragment.ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.beverages_display_layout, parent, false);
+                BeveragesFragment.ProductViewHolder viewHolder = new BeveragesFragment.ProductViewHolder(view);
+                return  viewHolder;
+            }
+        };
+
+        myBeveragesRecyclerViewList.setAdapter(adapter);
+        adapter.startListening();
+    }
+
+    public static class ProductViewHolder extends RecyclerView.ViewHolder {
+
+        TextView beveragesName, beveragesType, beveragesPrice;
+        CircleImageView beveragesImage;
+
+        public ProductViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            beveragesName = itemView.findViewById(R.id.beverages_name);
+            beveragesType = itemView.findViewById(R.id.beverages_type);
+            beveragesPrice = itemView.findViewById(R.id.beverages_price);
+            beveragesImage = itemView.findViewById(R.id.beverages_profile_image);
+        }
+
+    }
+
 }

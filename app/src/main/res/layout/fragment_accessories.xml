@@ -5,11 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".AccessoriesFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/accessoriesRecyclerList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Create Accessories List"
-        android:textSize="24sp" />
+        android:layout_height="match_parent" />
 
 </FrameLayout>

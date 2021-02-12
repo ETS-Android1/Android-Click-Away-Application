@@ -18,6 +18,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,13 +29,9 @@ import com.google.firebase.database.ValueEventListener;
  */
 public class CoffeeFragment extends Fragment {
 
-
-
     private View coffeeView;
     private RecyclerView myCoffeeRecyclerViewList;
-
     private DatabaseReference coffeeRef;
-
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -86,7 +85,6 @@ public class CoffeeFragment extends Fragment {
 
         coffeeRef = FirebaseDatabase.getInstance().getReference().child("Products").child("Coffee");
 
-
         return coffeeView;
     }
 
@@ -110,14 +108,30 @@ public class CoffeeFragment extends Fragment {
                 {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String cName = snapshot.child("name").getValue().toString();
-                        String cType = snapshot.child("type").getValue().toString();
-                        String cPrice = snapshot.child("price").getValue().toString();
+                        if (snapshot.hasChild("image")) {
+                            String cImage = snapshot.child("image").getValue().toString();
 
-                        holder.coffeeName.setText(cName);
-                        holder.coffeeType.setText(cType);
-                        holder.coffeePrice.setText(cPrice);
+                            String cName = snapshot.child("name").getValue().toString();
+                            String cType = snapshot.child("type").getValue().toString();
+                            String cPrice = snapshot.child("price").getValue().toString();
 
+                            //Picasso.get().load(cImage).placeholder(R.drawable.ic_product_image).into(holder.coffeeImage);
+                            Picasso.with(getActivity()).load(cImage).placeholder(R.drawable.ic_product_image).into(holder.coffeeImage);
+
+                            holder.coffeeName.setText(cName);
+                            holder.coffeeType.setText(cType);
+                            holder.coffeePrice.setText(cPrice);
+                        }
+                        else {
+                            String cName = snapshot.child("name").getValue().toString();
+                            String cType = snapshot.child("type").getValue().toString();
+                            String cPrice = snapshot.child("price").getValue().toString();
+
+                            holder.coffeeName.setText(cName);
+                            holder.coffeeType.setText(cType);
+                            holder.coffeePrice.setText(cPrice);
+                        }
+                        
                     }
 
                     @Override
@@ -140,11 +154,10 @@ public class CoffeeFragment extends Fragment {
         adapter.startListening();
     }
 
-
-
     public static class ProductViewHolder extends RecyclerView.ViewHolder {
 
         TextView coffeeName, coffeeType, coffeePrice;
+        CircleImageView coffeeImage;
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -152,10 +165,9 @@ public class CoffeeFragment extends Fragment {
             coffeeName = itemView.findViewById(R.id.coffee_name);
             coffeeType = itemView.findViewById(R.id.coffee_type);
             coffeePrice = itemView.findViewById(R.id.coffee_price);
+            coffeeImage = itemView.findViewById(R.id.coffee_profile_image);
         }
 
     }
-
-
 
 }

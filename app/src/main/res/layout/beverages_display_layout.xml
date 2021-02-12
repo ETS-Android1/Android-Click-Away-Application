@@ -17,7 +17,7 @@
         android:layout_height="match_parent">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/coffee_profile_image"
+            android:id="@+id/beverages_profile_image"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_marginStart="2dp"
@@ -40,7 +40,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/coffee_name"
+            android:id="@+id/beverages_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="14dp"
@@ -64,7 +64,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
         <TextView
-            android:id="@+id/coffee_type"
+            android:id="@+id/beverages_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -74,7 +74,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.078"
             app:layout_constraintStart_toEndOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/coffee_name" />
+            app:layout_constraintTop_toBottomOf="@+id/beverages_name" />
 
         <TextView
             android:id="@+id/textView3"
@@ -91,7 +91,7 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/coffee_price"
+            android:id="@+id/beverages_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -103,7 +103,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.064"
             app:layout_constraintStart_toEndOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/coffee_type"
+            app:layout_constraintTop_toBottomOf="@+id/beverages_type"
             app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

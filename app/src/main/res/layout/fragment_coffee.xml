@@ -5,9 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".CoffeeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/coffeeRecyclerList"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 </FrameLayout>

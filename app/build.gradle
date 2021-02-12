@@ -42,6 +42,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:20.0.2'
     //implementation 'com.google.firebase:firebase-database:19.2.1'
     implementation 'androidx.mediarouter:mediarouter:1.2.1'
+    implementation 'com.google.firebase:firebase-storage:19.2.1'
+    implementation 'com.google.firebase:firebase-config:20.0.3'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -56,5 +58,6 @@ dependencies {
 // This dependency includes all material components of the android app.
     implementation 'com.google.android.material:material:1.1.0'
 
-
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }
