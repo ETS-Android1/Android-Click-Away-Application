@@ -4,17 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
     tools:context=".ShoppingCartActivity">
 
     <Button
         android:id="@+id/buttonSubmitOrder"
         android:layout_width="170dp"
-        android:layout_height="53dp"
+        android:layout_height="62dp"
         android:layout_marginStart="120dp"
-        android:layout_marginBottom="220dp"
+        android:layout_marginBottom="169dp"
+        android:backgroundTint="#61C665"
         android:onClick="submitOrder"
         android:text="Submit Order"
+        android:textColor="#0B0A0A"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="72dp"
+        android:text="Your cart is currently empty"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="226dp"
+        android:layout_height="222dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="120dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_mycart_foreground" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

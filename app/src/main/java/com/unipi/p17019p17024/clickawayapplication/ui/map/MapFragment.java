@@ -1,4 +1,4 @@
-package com.unipi.p17019p17024.clickawayapplication.ui.gallery;
+package com.unipi.p17019p17024.clickawayapplication.ui.map;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -24,12 +24,7 @@ public class MapFragment extends Fragment {
                 new ViewModelProvider(this).get(MapViewModel.class);
         View root = inflater.inflate(R.layout.fragment_map, container, false);
         final TextView textView = root.findViewById(R.id.text_gallery);
-        mapViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        mapViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 }

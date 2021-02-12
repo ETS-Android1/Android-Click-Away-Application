@@ -1,4 +1,4 @@
-package com.unipi.p17019p17024.clickawayapplication.ui.slideshow;
+package com.unipi.p17019p17024.clickawayapplication.ui.about;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -10,7 +10,7 @@ public class AboutViewModel extends ViewModel {
 
     public AboutViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is slideshow fragment");
+        mText.setValue("This is about fragment");
     }
 
     public LiveData<String> getText() {

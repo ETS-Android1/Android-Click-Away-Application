@@ -1,4 +1,4 @@
-package com.unipi.p17019p17024.clickawayapplication.ui.gallery;
+package com.unipi.p17019p17024.clickawayapplication.ui.map;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -10,7 +10,7 @@ public class MapViewModel extends ViewModel {
 
     public MapViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("This is map fragment");
     }
 
     public LiveData<String> getText() {

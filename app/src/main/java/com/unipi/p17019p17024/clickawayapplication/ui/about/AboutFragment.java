@@ -1,4 +1,4 @@
-package com.unipi.p17019p17024.clickawayapplication.ui.slideshow;
+package com.unipi.p17019p17024.clickawayapplication.ui.about;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -24,12 +24,7 @@ public class AboutFragment extends Fragment {
                 new ViewModelProvider(this).get(AboutViewModel.class);
         View root = inflater.inflate(R.layout.fragment_about, container, false);
         final TextView textView = root.findViewById(R.id.text_slideshow);
-        aboutViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        aboutViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 }

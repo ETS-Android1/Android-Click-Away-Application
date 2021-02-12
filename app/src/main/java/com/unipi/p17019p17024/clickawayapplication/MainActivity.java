@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,14 +31,12 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements LocationListener {
     Button button1;
-    //String userID, username,email;
 
     //
     //Fixed userID
     //
     String userID = "ELznDdlK6wSZ3ArkDttTpONurRS2";
 
-    TextView textView1,textView2;
 
     LocationManager locationManager;
 
@@ -57,22 +57,20 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         button1 = findViewById(R.id.shopping_cart);
-        textView1 = findViewById(R.id.usernameTextView);
-        textView2 = findViewById(R.id.emailTextView);
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
+
+        //User Authentication
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
 
+        getIntent().getStringExtra("userID");
+        getIntent().getStringExtra("email");
+        getIntent().getStringExtra("username");
+
+
+        //database Firebase
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("Orders:");
-
-        /*
-        !!!!!!
-         */
-        //textView1.setText(getIntent().getStringExtra("username"));
-        //textView2.setText(getIntent().getStringExtra("email"));
-
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -80,12 +78,21 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_map, R.id.nav_about)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        //
+        //show username and email on navigationView
+        //
+        View headerView = navigationView.getHeaderView(0);
+        TextView navUsername = headerView.findViewById(R.id.usernameTextView);
+        TextView navEmail = headerView.findViewById(R.id.emailTextView);
+        navUsername.setText(getIntent().getStringExtra("username"));
+        navEmail.setText(getIntent().getStringExtra("email"));
     }
 
     @Override
@@ -106,6 +113,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     public void shoppingCartOnClick(MenuItem menuItem){
         Intent intent = new Intent(getApplicationContext(), ShoppingCartActivity.class);
         //intent.putExtra("userID", currentUser.getUid());
+        //intent.putExtra("email", currentUser.getEmail());
+        //intent.putExtra("username",currentUser.getDisplayName());
+
 
         //
         //Fixed userID
