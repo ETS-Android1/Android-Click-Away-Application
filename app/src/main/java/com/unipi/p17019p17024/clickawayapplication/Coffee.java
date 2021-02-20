@@ -9,7 +9,7 @@ public class Coffee {
     private double price;
     private int quantity;
     private String type;
-    //private Image image;
+    //private String image;
     private File image;
 
     public Coffee() {}

@@ -5,6 +5,11 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>-->
+    <!--<uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />-->
+    <!--<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />-->
+
 
     <application
         android:allowBackup="true"
@@ -13,12 +18,11 @@
         android:roundIcon="@mipmap/ic_my_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.ClickAwayApplication">
+        <activity android:name=".ProductActivity"></activity>
         <activity android:name=".FavoritesActivity" />
-        <activity android:name=".ShoppingCartActivity" />
+        <activity android:name=".ShoppingCartActivity" /> <!-- LoginActivity First -->
 
-        <!-- LoginActivity First -->
-
-        <!--<activity android:name=".LogInActivity">
+<activity android:name=".LogInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,10 +38,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>-->
-
+        </activity>
 
         <!-- MainActivity First -->
+        <!--
         <activity android:name=".LogInActivity" />
         <activity
             android:name=".MainActivity"
@@ -49,6 +53,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        -->
+
+        <!--Background location-->
+        <!--<service android:name=".LocationService" android:enabled="true" android:exported="false" />-->
+
+        <!--for profile image-->
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat"/>
+
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+
     </application>
 
 </manifest>

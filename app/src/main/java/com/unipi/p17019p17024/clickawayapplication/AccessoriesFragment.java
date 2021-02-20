@@ -1,5 +1,6 @@
 package com.unipi.p17019p17024.clickawayapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -107,21 +108,14 @@ public class AccessoriesFragment extends Fragment {
                 {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.hasChild("image")) {
-                            String aImage = snapshot.child("image").getValue().toString();
+                        if (snapshot.exists()){
+                            //if (snapshot.hasChild("image")) {
+                                String aImage = snapshot.child("image").getValue().toString();
 
-                            String aName = snapshot.child("name").getValue().toString();
-                            String aType = snapshot.child("type").getValue().toString();
-                            String aPrice = snapshot.child("price").getValue().toString();
+                                Picasso.get().load(aImage).placeholder(R.drawable.ic_product_image).into(holder.accessoriesImage);
+                                //Picasso.with(getActivity()).load(aImage).placeholder(R.drawable.ic_product_image).into(holder.accessoriesImage);
+                            //}
 
-                            //Picasso.get().load(aImage).placeholder(R.drawable.ic_product_image).into(holder.accessoriesImage);
-                            Picasso.with(getActivity()).load(aImage).placeholder(R.drawable.ic_product_image).into(holder.accessoriesImage);
-
-                            holder.accessoriesName.setText(aName);
-                            holder.accessoriesType.setText(aType);
-                            holder.accessoriesPrice.setText(aPrice);
-                        }
-                        else {
                             String aName = snapshot.child("name").getValue().toString();
                             String aType = snapshot.child("type").getValue().toString();
                             String aPrice = snapshot.child("price").getValue().toString();
@@ -129,8 +123,25 @@ public class AccessoriesFragment extends Fragment {
                             holder.accessoriesName.setText(aName);
                             holder.accessoriesType.setText(aType);
                             holder.accessoriesPrice.setText(aPrice);
-                        }
 
+                            //
+                            //On Click
+                            //
+                            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent productIntent = new Intent(getContext(), ProductActivity.class);
+
+                                    productIntent.putExtra("product_id", accessoriesIDs);
+                                    productIntent.putExtra("product_name", aName);
+                                    productIntent.putExtra("product_type", aType);
+                                    productIntent.putExtra("product_price", aPrice);
+                                    productIntent.putExtra("product_image", aImage);
+
+                                    startActivity(productIntent);
+                                }
+                            });
+                        }
                     }
 
                     @Override

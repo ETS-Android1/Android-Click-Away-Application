@@ -1,5 +1,6 @@
 package com.unipi.p17019p17024.clickawayapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -107,21 +108,14 @@ public class BeveragesFragment extends Fragment {
                 {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.hasChild("image")) {
-                            String bImage = snapshot.child("image").getValue().toString();
+                        if(snapshot.exists()){
+                            //if (snapshot.hasChild("image")) {
+                                String bImage = snapshot.child("image").getValue().toString();
 
-                            String bName = snapshot.child("name").getValue().toString();
-                            String bType = snapshot.child("type").getValue().toString();
-                            String bPrice = snapshot.child("price").getValue().toString();
+                                Picasso.get().load(bImage).placeholder(R.drawable.ic_product_image).into(holder.beveragesImage);
+                                //Picasso.with(getActivity()).load(bImage).placeholder(R.drawable.ic_product_image).into(holder.beveragesImage);
+                            //}
 
-                            //Picasso.get().load(bImage).placeholder(R.drawable.ic_product_image).into(holder.beveragesImage);
-                            Picasso.with(getActivity()).load(bImage).placeholder(R.drawable.ic_product_image).into(holder.beveragesImage);
-
-                            holder.beveragesName.setText(bName);
-                            holder.beveragesType.setText(bType);
-                            holder.beveragesPrice.setText(bPrice);
-                        }
-                        else {
                             String bName = snapshot.child("name").getValue().toString();
                             String bType = snapshot.child("type").getValue().toString();
                             String bPrice = snapshot.child("price").getValue().toString();
@@ -129,8 +123,25 @@ public class BeveragesFragment extends Fragment {
                             holder.beveragesName.setText(bName);
                             holder.beveragesType.setText(bType);
                             holder.beveragesPrice.setText(bPrice);
-                        }
 
+                            //
+                            //On Click
+                            //
+                            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent productIntent = new Intent(getContext(), ProductActivity.class);
+
+                                    productIntent.putExtra("product_id", beveragesIDs);
+                                    productIntent.putExtra("product_name", bName);
+                                    productIntent.putExtra("product_type", bType);
+                                    productIntent.putExtra("product_price", bPrice);
+                                    productIntent.putExtra("product_image", bImage);
+
+                                    startActivity(productIntent);
+                                }
+                            });
+                        }
                     }
 
                     @Override

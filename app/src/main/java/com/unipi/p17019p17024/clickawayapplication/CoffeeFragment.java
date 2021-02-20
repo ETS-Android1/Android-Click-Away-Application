@@ -1,5 +1,6 @@
 package com.unipi.p17019p17024.clickawayapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -108,21 +109,15 @@ public class CoffeeFragment extends Fragment {
                 {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.hasChild("image")) {
-                            String cImage = snapshot.child("image").getValue().toString();
 
-                            String cName = snapshot.child("name").getValue().toString();
-                            String cType = snapshot.child("type").getValue().toString();
-                            String cPrice = snapshot.child("price").getValue().toString();
+                        if(snapshot.exists()) {
+                            //if (snapshot.hasChild("image")) {
+                                String cImage = snapshot.child("image").getValue().toString();
 
-                            //Picasso.get().load(cImage).placeholder(R.drawable.ic_product_image).into(holder.coffeeImage);
-                            Picasso.with(getActivity()).load(cImage).placeholder(R.drawable.ic_product_image).into(holder.coffeeImage);
+                                Picasso.get().load(cImage).placeholder(R.drawable.ic_product_image).into(holder.coffeeImage);
+                                //Picasso.with(getActivity()).load(cImage).placeholder(R.drawable.ic_product_image).into(holder.coffeeImage);
+                            //}
 
-                            holder.coffeeName.setText(cName);
-                            holder.coffeeType.setText(cType);
-                            holder.coffeePrice.setText(cPrice);
-                        }
-                        else {
                             String cName = snapshot.child("name").getValue().toString();
                             String cType = snapshot.child("type").getValue().toString();
                             String cPrice = snapshot.child("price").getValue().toString();
@@ -130,6 +125,24 @@ public class CoffeeFragment extends Fragment {
                             holder.coffeeName.setText(cName);
                             holder.coffeeType.setText(cType);
                             holder.coffeePrice.setText(cPrice);
+
+                            //
+                            //On Click
+                            //
+                            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent productIntent = new Intent(getContext(), ProductActivity.class);
+
+                                    productIntent.putExtra("product_id", coffeeIDs);
+                                    productIntent.putExtra("product_name", cName);
+                                    productIntent.putExtra("product_type", cType);
+                                    productIntent.putExtra("product_price", cPrice);
+                                    productIntent.putExtra("product_image", cImage);
+
+                                    startActivity(productIntent);
+                                }
+                            });
                         }
                         
                     }

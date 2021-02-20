@@ -49,15 +49,22 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
 
-//Firebase RealTimeDatabase Working
+    //Firebase RealTimeDatabase Working
     implementation 'com.google.firebase:firebase-database:19.6.0'
-// Dependency FirebaseUI for Firebase Realtime Database
+    // Dependency FirebaseUI for Firebase Realtime Database
     implementation 'com.firebaseui:firebase-ui-database:6.2.1'
-// Dependency for Firebase Realtime Database
+    // Dependency for Firebase Realtime Database
     implementation 'com.google.firebase:firebase-database:19.3.1'
-// This dependency includes all material components of the android app.
+    // This dependency includes all material components of the android app.
     implementation 'com.google.android.material:material:1.1.0'
 
-    implementation 'com.squareup.picasso:picasso:2.5.2'
+    //new version of Picasso from profile image
+    implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //background location
+    //implementation 'com.google.android.gms:play-services-location:17.1.0'
+
+    //cropping gallery image
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
 }

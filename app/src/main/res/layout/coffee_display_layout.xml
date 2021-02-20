@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="170dp"
+    android:layout_height="124dp"
     android:layout_marginHorizontal="10dp"
     android:layout_marginTop="10dp"
     android:layout_marginBottom="20dp"
@@ -15,43 +15,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/buttonSubmitOrder2"
-            android:layout_width="120dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="1dp"
-            android:layout_marginBottom="2dp"
-            android:backgroundTint="#FFA64D"
-            android:onClick="submitOrder"
-            android:text="Add to Cart"
-            android:textColor="#0B0A0A"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <ImageButton
-            android:id="@+id/imageButton4"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="60dp"
-            android:layout_marginEnd="1dp"
-            android:backgroundTint="#FFFFFF"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@mipmap/ic_heart_blank" />
-
-        <ImageButton
-            android:id="@+id/imageButton3"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="109dp"
-            android:layout_marginBottom="7dp"
-            android:backgroundTint="#FFFFFF"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@mipmap/ic_minus" />
+        <TextView
+            android:id="@+id/textViewEuroSymbolCoffee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="85dp"
+            android:text="€"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/coffee_price"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/coffee_profile_image"
@@ -60,7 +35,9 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="294dp"
+            android:layout_marginBottom="16dp"
             android:src="@drawable/ic_product_image"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -142,31 +119,6 @@
             app:layout_constraintStart_toEndOf="@+id/textView3"
             app:layout_constraintTop_toBottomOf="@+id/coffee_type"
             app:layout_constraintVertical_bias="0.0" />
-
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="184dp"
-            android:layout_marginBottom="7dp"
-            android:backgroundTint="#FFFFFF"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@mipmap/ic_plus" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="154dp"
-            android:layout_marginBottom="16dp"
-            android:text="1"
-            android:textAlignment="center"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
