@@ -133,8 +133,8 @@ public class ShoppingCartActivity extends AppCompatActivity implements LocationL
 
         userIDRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
+            public void onDataChange(@NonNull DataSnapshot mySnapshot) {
+                if (mySnapshot.exists()){
                     textViewCartTitle.setVisibility(View.VISIBLE);
                     textViewEmptyCartTitle.setVisibility(View.INVISIBLE);
                     imageViewEmptyCart.setVisibility(View.INVISIBLE);
@@ -269,10 +269,10 @@ public class ShoppingCartActivity extends AppCompatActivity implements LocationL
             ordersRef = FirebaseDatabase.getInstance().getReference().child("Orders");
             ordersRef.child(keyChild).child("products").addValueEventListener(new ValueEventListener(){
                 @Override
-                public void onDataChange(@NotNull DataSnapshot dataSnapshot)
+                public void onDataChange(@NotNull DataSnapshot dataSnapshot1)
                 {
-                    if (dataSnapshot.exists()) {
-                        for (DataSnapshot dsp10 : dataSnapshot.getChildren()) {
+                    if (dataSnapshot1.exists()) {
+                        for (DataSnapshot dsp10 : dataSnapshot1.getChildren()) {
 
                             productID2 = dsp10.getKey();
                             quantity2 = dsp10.child("quantity").getValue().toString();
