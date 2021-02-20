@@ -1,5 +1,6 @@
 package com.unipi.p17019p17024.clickawayapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -43,14 +44,7 @@ public class ProductActivity extends AppCompatActivity {
     Button buttonAddToCart;
 
     //Database Firebase
-    //FirebaseDatabase database;
     DatabaseReference database;
-    DatabaseReference myRef, userIDRef, productIDRef;
-
-    //
-    //Fixed userID
-    //
-    //String userID = "ELznDdlK6wSZ3ArkDttTpONurRS2";
 
     //User Authentication
     public FirebaseAuth mAuth;
@@ -104,7 +98,6 @@ public class ProductActivity extends AppCompatActivity {
         productPrice = getIntent().getExtras().get("product_price").toString();
         productImage = getIntent().getExtras().get("product_image").toString();
 
-        //imageViewProductImage.setImageBitmap(BitmapFactory.decodeFile(productImage));
         Picasso.get().load(productImage).placeholder(R.drawable.ic_product_image).into(imageViewProductImage);
 
         //Name
@@ -117,17 +110,8 @@ public class ProductActivity extends AppCompatActivity {
         textViewTotalPrice.setText(totalPrice.toString());
 
         //Database Firebase
-        //database = FirebaseDatabase.getInstance();
-
         database = FirebaseDatabase.getInstance().getReference();
 
-        //myRef = database.getReference("Cart");
-        //userIDRef = database.getReference("Cart/"+userID);
-        //productIDRef = database.getReference("Cart/"+userID+"/"+productID);
-
-        //userIDRef = database.getReference().child("Cart").child("UserID");
-
-        //Toast.makeText(this,"Product ID: "+productID+"\nProduct Name: "+productName+"\nProduct Type: "+productType+"\nProduct Price: "+productPrice,Toast.LENGTH_LONG).show();
 
         //
         //Check if product is on Favourites in Firebase
@@ -137,63 +121,30 @@ public class ProductActivity extends AppCompatActivity {
 
 
     public void addToCartClick(View v) {
-        //
-        //Αυτό δουλεύει
-        //
-        //database.child("Cart").child(userID).child(productID).setValue(quantity);
-
-
 
         database.child("Cart").child(userID).child(productID).child("id").setValue(productID);
         database.child("Cart").child(userID).child(productID).child("name").setValue(productName);
-        //database.child("Cart").child(userID).child(productID).child("price").setValue(productPrice);
         database.child("Cart").child(userID).child(productID).child("type").setValue(productType);
         database.child("Cart").child(userID).child(productID).child("image").setValue(productImage);
         database.child("Cart").child(userID).child(productID).child("quantity").setValue(quantity);
         database.child("Cart").child(userID).child(productID).child("total price").setValue(totalPrice);
 
-
-        /*Intent cartIntent = new Intent(getApplicationContext(), ShoppingCartActivity.class);
-
-        cartIntent.putExtra("product_id", productID);
-        cartIntent.putExtra("product_name", productName);
-        cartIntent.putExtra("product_type", productType);
-        cartIntent.putExtra("product_quantity", quantity);
-        cartIntent.putExtra("product_total_price", totalPrice);
-        //cartIntent.putExtra("product_image", productImage);
-
-        startActivity(cartIntent);*/
-
         Toast.makeText(this,"Product added to cart!",Toast.LENGTH_LONG).show();
+
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.putExtra("userID", currentUser.getUid());
+        intent.putExtra("email", currentUser.getEmail());
+        intent.putExtra("username",currentUser.getDisplayName());
+        startActivity(intent);
     }
 
     public void favouritesClick(View v) {
-        //
-        //Αυτό δουλεύει
-        //
-        //database.child("Favourites").child(userID).child(productID).setValue(1);
-
-
 
         database.child("Cart").child(userID).child(productID).child("id").setValue(productID);
         database.child("Cart").child(userID).child(productID).child("name").setValue(productName);
         database.child("Cart").child(userID).child(productID).child("price").setValue(productPrice);
         database.child("Cart").child(userID).child(productID).child("type").setValue(productType);
         database.child("Cart").child(userID).child(productID).child("image").setValue(productImage);
-        //database.child("Cart").child(userID).child(productID).child("quantity").setValue(quantity);
-        //database.child("Cart").child(userID).child(productID).child("totalPrice").setValue(totalPrice);
-
-
-        /*Intent favouritesIntent = new Intent(getApplicationContext(), ShoppingCartActivity.class);
-
-        favouritesIntent.putExtra("product_id", productID);
-        favouritesIntent.putExtra("product_name", productName);
-        favouritesIntent.putExtra("product_price", productPrice);
-        favouritesIntent.putExtra("product_type", productType);
-        //favouritesIntent.putExtra("product_image", productImage);
-        //favouritesIntent.putExtra("product_quantity", quantity);
-
-        startActivity(favouritesIntent);*/
     }
 
     public void minusClick(View v) {

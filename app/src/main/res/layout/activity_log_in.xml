@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
     tools:context=".LogInActivity">
 
     <TextView
@@ -48,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="277dp"
+        android:layout_marginTop="272dp"
         android:ems="10"
         android:hint="Enter password"
         android:inputType="textPassword"
@@ -60,10 +62,13 @@
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="468dp"
+        android:layout_marginBottom="224dp"
+        android:backgroundTint="#97A2FF"
         android:onClick="signUp"
         android:text="Sign Up"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,9 +77,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="164dp"
-        android:layout_marginTop="404dp"
+        android:layout_marginTop="395dp"
+        android:layout_marginBottom="297dp"
+        android:backgroundTint="#97A2FF"
         android:onClick="signIn"
         android:text="Sign In"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -84,6 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="159dp"
         android:layout_marginBottom="30dp"
+        android:backgroundTint="#97A2FF"
         android:onClick="transitionClick"
         android:text="Sign In"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -94,7 +103,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="343dp"
+        android:layout_marginTop="336dp"
         android:ems="10"
         android:hint="Enter a username"
         android:inputType="textPersonName"
@@ -108,12 +117,36 @@
         android:layout_height="40dp"
         android:layout_marginStart="60dp"
         android:layout_marginBottom="39dp"
-        android:backgroundTint="#9C9C9C"
+        android:backgroundTint="#97A2FF"
         android:onClick="goBack"
         android:text="back to creating an account"
         android:textColor="#050505"
         app:iconTint="#0C0A0A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="187dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="109dp"
+        android:backgroundTint="#FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_my_launcher_foreground" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="413dp"
+        android:layout_marginBottom="297dp"
+        android:text="remember me"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

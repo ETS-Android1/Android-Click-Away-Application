@@ -2,10 +2,14 @@ package com.unipi.p17019p17024.clickawayapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +22,9 @@ public class LogInActivity extends AppCompatActivity {
     EditText editText1,editText2,editText3;
     Button button1,button2,button3,button4;
     TextView textView1,textView2;
+    CheckBox checkBox;
+
+    SharedPreferences sharedPreferences;
 
     //User Authentication
     public FirebaseAuth mAuth;
@@ -25,6 +32,7 @@ public class LogInActivity extends AppCompatActivity {
 
 
     boolean isSignedIn = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +47,11 @@ public class LogInActivity extends AppCompatActivity {
         button4 = findViewById(R.id.button4);
         textView1 = findViewById(R.id.textView1);
         textView2 = findViewById(R.id.textView2);
+        checkBox = findViewById(R.id.checkBox);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+        //Shared Preferences
+
 
         //User Authentication
         mAuth = FirebaseAuth.getInstance();
@@ -54,22 +67,33 @@ public class LogInActivity extends AppCompatActivity {
             Toast.makeText(this, "One or more fields are empty!", Toast.LENGTH_SHORT).show();
         }
         else {
-            mAuth.createUserWithEmailAndPassword(editText1.getText().toString(), editText2.getText().toString())
-                    .addOnCompleteListener(this, task -> {
-                        if (task.isSuccessful()) {
-                            currentUser = mAuth.getCurrentUser();
-                            Toast.makeText(getApplicationContext(), "Sign-up successful!", Toast.LENGTH_LONG).show();
-                            createUsername(editText3.getText().toString(), currentUser);
-                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                            intent.putExtra("userID", currentUser.getUid());
-                            intent.putExtra("email", currentUser.getEmail());
-                            intent.putExtra("username",currentUser.getDisplayName());
-                            startActivity(intent);
-                        }
-                        else {
-                            Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    });
+                mAuth.createUserWithEmailAndPassword(editText1.getText().toString(), editText2.getText().toString())
+                        .addOnCompleteListener(this, task -> {
+                            if (task.isSuccessful()) {
+                                currentUser = mAuth.getCurrentUser();
+                                Toast.makeText(getApplicationContext(), "Sign-up successful!", Toast.LENGTH_LONG).show();
+                                createUsername(editText3.getText().toString(), currentUser);
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                intent.putExtra("userID", currentUser.getUid());
+                                intent.putExtra("email", currentUser.getEmail());
+                                intent.putExtra("username",currentUser.getDisplayName());
+
+
+                                if(checkBox.isChecked()) {
+                                    //to-do stuff (shared preferences)
+                                }
+                                else{
+
+                                }
+
+
+                                startActivity(intent);
+                            }
+                            else {
+                                Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                            }
+                        });
+
         }
     }
 
@@ -83,6 +107,8 @@ public class LogInActivity extends AppCompatActivity {
         button4.setVisibility(View.VISIBLE);
         textView2.setVisibility(View.INVISIBLE);
         textView1.setText("Enter your credentials");
+        checkBox.setVisibility(View.INVISIBLE);
+
     }
 
     public void goBack(View view){
@@ -95,6 +121,7 @@ public class LogInActivity extends AppCompatActivity {
         button4.setVisibility(View.INVISIBLE);
         textView2.setVisibility(View.VISIBLE);
         textView1.setText("   Create an account");
+        checkBox.setVisibility(View.VISIBLE);
     }
 
 
@@ -102,7 +129,6 @@ public class LogInActivity extends AppCompatActivity {
             mAuth.signInWithEmailAndPassword(editText1.getText().toString(), editText2.getText().toString())
                     .addOnCompleteListener(this, task -> {
                         if (task.isSuccessful()) {
-                            isSignedIn = true;
                             currentUser = mAuth.getCurrentUser();
                             Toast.makeText(getApplicationContext(), "Log-in successful!", Toast.LENGTH_LONG).show();
                             Intent intent2 = new Intent(getApplicationContext(), MainActivity.class);

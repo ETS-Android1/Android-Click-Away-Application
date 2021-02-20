@@ -4,19 +4,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".ui.about.AboutFragment">
 
-    <TextView
-        android:id="@+id/text_slideshow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="187dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="550dp"
+        android:backgroundTint="#FFFFFF"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_my_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="236dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="193dp"
+        android:layout_marginBottom="512dp"
+        android:text="Your Click Away App"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#97A2FF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_title3"
+        android:layout_width="166dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="228dp"
+        android:layout_marginBottom="477dp"
+        android:text="Version v.0.0.1"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_title2"
+        android:layout_width="166dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="193dp"
+        android:layout_marginBottom="512dp"
+        android:text="  for Android"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_title4"
+        android:layout_width="293dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="343dp"
+        android:layout_marginBottom="346dp"
+        android:text="2021 YourClickAwayApp Team All rights reserved."
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

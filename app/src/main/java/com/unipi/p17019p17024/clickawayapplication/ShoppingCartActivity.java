@@ -441,6 +441,9 @@ public class ShoppingCartActivity extends AppCompatActivity implements LocationL
 
     public void GoToProducts(View view){
         Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+        intent.putExtra("userID", currentUser.getUid());
+        intent.putExtra("email", currentUser.getEmail());
+        intent.putExtra("username",currentUser.getDisplayName());
         startActivity(intent);
     }
 
