@@ -8,6 +8,18 @@
     android:backgroundTint="#FFFFFF"
     tools:context=".LogInActivity">
 
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="340dp"
+        android:text="remember me"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
@@ -77,12 +89,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="164dp"
-        android:layout_marginTop="395dp"
-        android:layout_marginBottom="297dp"
+        android:layout_marginTop="400dp"
         android:backgroundTint="#97A2FF"
         android:onClick="signIn"
         android:text="Sign In"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -142,10 +152,12 @@
         android:layout_height="30dp"
         android:layout_marginStart="130dp"
         android:layout_marginTop="413dp"
+        android:layout_marginEnd="131dp"
         android:layout_marginBottom="297dp"
         android:text="remember me"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
