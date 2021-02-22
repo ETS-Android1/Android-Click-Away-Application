@@ -23,8 +23,8 @@ public class MapFragment extends Fragment {
         mapViewModel =
                 new ViewModelProvider(this).get(MapViewModel.class);
         View root = inflater.inflate(R.layout.fragment_map, container, false);
-        final TextView textView = root.findViewById(R.id.text_gallery);
-        mapViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        //final TextView textView = root.findViewById(R.id.text_gallery);
+        //mapViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 }

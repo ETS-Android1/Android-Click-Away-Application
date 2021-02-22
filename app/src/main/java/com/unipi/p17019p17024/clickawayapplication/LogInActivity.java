@@ -1,5 +1,7 @@
 package com.unipi.p17019p17024.clickawayapplication;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,8 +13,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
@@ -20,7 +20,7 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 public class LogInActivity extends AppCompatActivity {
     EditText editTextEmail, editTextPassword, editTextTextUsername;
     Button button1,button2,button3,button4;
-    TextView textView1,textView2;
+    TextView textView1,textView2,textView3;
     CheckBox checkBox, checkBox2;
 
     //Shared Preferences
@@ -38,15 +38,16 @@ public class LogInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
-        editTextEmail = findViewById(R.id.editTextTextEmail);
-        editTextPassword = findViewById(R.id.editTextTextPassword);
-        editTextTextUsername = findViewById(R.id.editTextTextUsername);
+        editTextEmail = findViewById(R.id.editTextEmail);
+        editTextPassword = findViewById(R.id.editTextPassword);
+        editTextTextUsername = findViewById(R.id.editTextUsername);
         button1 = findViewById(R.id.button1);
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
         button4 = findViewById(R.id.button4);
-        textView1 = findViewById(R.id.textView1);
+        textView1 = findViewById(R.id.loginTitle1);
         textView2 = findViewById(R.id.textView2);
+        textView3 = findViewById(R.id.loginTitle2);
         checkBox = findViewById(R.id.checkBox);
         checkBox2 = findViewById(R.id.checkBox2);
 
@@ -74,14 +75,14 @@ public class LogInActivity extends AppCompatActivity {
 
     public void signUp(View view) {
         if (editTextEmail.getText().toString().isEmpty() || editTextPassword.getText().toString().isEmpty() || editTextTextUsername.getText().toString().isEmpty()) {
-            Toast.makeText(this, "One or more fields are empty!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.errorToast2), Toast.LENGTH_SHORT).show();
         }
         else {
                 mAuth.createUserWithEmailAndPassword(editTextEmail.getText().toString(), editTextPassword.getText().toString())
                         .addOnCompleteListener(this, task -> {
                             if (task.isSuccessful()) {
                                 currentUser = mAuth.getCurrentUser();
-                                Toast.makeText(getApplicationContext(), "Sign-up successful!", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.signUpToast), Toast.LENGTH_LONG).show();
                                 createUsername(editTextTextUsername.getText().toString(), currentUser);
 
                                 isSignInPushed = false;
@@ -91,7 +92,7 @@ public class LogInActivity extends AppCompatActivity {
                                 intent.putExtra("userID", currentUser.getUid());
                                 intent.putExtra("email", currentUser.getEmail());
                                 intent.putExtra("username",currentUser.getDisplayName());
-
+                                //Toast.makeText(this,currentUser.getDisplayName(),Toast.LENGTH_LONG).show();
                                 startActivity(intent);
                             }
                             else {
@@ -103,25 +104,20 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     public void transitionClick(View view){
-
-        editTextEmail.setHint("Email");
-        editTextPassword.setHint("Password");
         editTextTextUsername.setVisibility(View.INVISIBLE);
         button1.setVisibility(View.INVISIBLE);
         button2.setVisibility(View.INVISIBLE);
         button3.setVisibility(View.VISIBLE);
         button4.setVisibility(View.VISIBLE);
         textView2.setVisibility(View.INVISIBLE);
-        textView1.setText("Enter your credentials");
+        textView1.setVisibility(View.INVISIBLE);
         checkBox.setVisibility(View.INVISIBLE);
+        textView3.setVisibility(View.VISIBLE);
         checkBox2.setVisibility(View.VISIBLE);
-
-
         String str_email = preferences.getString("myKeyEmail", "");
         editTextEmail.setText(str_email);
         String str_password = preferences.getString("myKeyPassword", "");
         editTextPassword.setText(str_password);
-
         if(str_email == "" && str_password == ""){
             checkBox2.setChecked(false);
         }
@@ -132,32 +128,28 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     public void goBack(View view){
-        editTextEmail.setHint("Enter email");
-        editTextPassword.setHint("Enter password");
         editTextTextUsername.setVisibility(View.VISIBLE);
         button1.setVisibility(View.VISIBLE);
         button2.setVisibility(View.VISIBLE);
         button3.setVisibility(View.INVISIBLE);
         button4.setVisibility(View.INVISIBLE);
         textView2.setVisibility(View.VISIBLE);
-        textView1.setText("   Create an account");
         checkBox.setVisibility(View.VISIBLE);
+        textView1.setVisibility(View.VISIBLE);
+        textView3.setVisibility(View.INVISIBLE);
         checkBox2.setVisibility(View.INVISIBLE);
-
         editTextEmail.setText("");
         editTextPassword.setText("");
-
         checkBox.setChecked(false);
     }
 
 
     public void signIn(View view) {
-
             mAuth.signInWithEmailAndPassword(editTextEmail.getText().toString(), editTextPassword.getText().toString())
                     .addOnCompleteListener(this, task -> {
                         if (task.isSuccessful()) {
                             currentUser = mAuth.getCurrentUser();
-                            Toast.makeText(getApplicationContext(), "Log-in successful!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.loginToast), Toast.LENGTH_LONG).show();
 
                             isSignInPushed = true;
                             writeSP(isSignInPushed);
@@ -179,12 +171,12 @@ public class LogInActivity extends AppCompatActivity {
                 .setDisplayName(username)
                 .build();
         user.updateProfile(profileChangeRequest)
-                .addOnCompleteListener(task -> Toast.makeText(getApplicationContext(),"User created",Toast.LENGTH_LONG).show());
+                .addOnCompleteListener(task -> Toast.makeText(getApplicationContext(),getResources().getString(R.string.userCratedToast),Toast.LENGTH_LONG).show());
     }
+
 
     public void writeSP(Boolean isSignInPushed) {
         SharedPreferences.Editor editor = preferences.edit();
-
         if (isSignInPushed){
             if(checkBox2.isChecked()) {
                 //Email
@@ -203,7 +195,8 @@ public class LogInActivity extends AppCompatActivity {
                 editor.apply();
             }
         }
-        else{
+        else
+        {
             if(checkBox.isChecked()) {
                 //Email
                 editor.putString("myKeyEmail", editTextEmail.getText().toString());
@@ -221,8 +214,5 @@ public class LogInActivity extends AppCompatActivity {
                 editor.apply();
             }
         }
-
     }
-
-
 }

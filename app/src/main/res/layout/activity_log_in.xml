@@ -8,27 +8,28 @@
     android:backgroundTint="#FFFFFF"
     tools:context=".LogInActivity">
 
-    <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="150dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="340dp"
-        android:text="remember me"
-        android:textSize="18sp"
-        android:visibility="invisible"
+    <TextView
+        android:id="@+id/loginTitle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="103dp"
+        android:layout_marginTop="144dp"
+        android:text="@string/loginTitle1"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/loginTitle2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="132dp"
-        android:text="   Create an account"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="144dp"
+        android:text="@string/loginTitle2"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,35 +37,35 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="105dp"
         android:layout_marginBottom="108dp"
-        android:text="Already have an account?"
+        android:text="@string/textView2"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextEmail"
+        android:id="@+id/editTextEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="202dp"
         android:ems="10"
-        android:hint="Enter email"
+        android:hint="@string/editTextEmail"
         android:inputType="textPersonName"
         android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/editTextPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="272dp"
         android:ems="10"
-        android:hint="Enter password"
+        android:hint="@string/editTextPassword"
         android:inputType="textPassword"
         android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,7 +80,7 @@
         android:layout_marginBottom="224dp"
         android:backgroundTint="#97A2FF"
         android:onClick="signUp"
-        android:text="Sign Up"
+        android:text="@string/signUpButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -92,7 +93,7 @@
         android:layout_marginTop="400dp"
         android:backgroundTint="#97A2FF"
         android:onClick="signIn"
-        android:text="Sign In"
+        android:text="@string/signInButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -104,18 +105,18 @@
         android:layout_marginBottom="30dp"
         android:backgroundTint="#97A2FF"
         android:onClick="transitionClick"
-        android:text="Sign In"
+        android:text="@string/signInButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextUsername"
+        android:id="@+id/editTextUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="336dp"
         android:ems="10"
-        android:hint="Enter a username"
+        android:hint="@string/editTextUsername"
         android:inputType="textPersonName"
         android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
@@ -129,7 +130,7 @@
         android:layout_marginBottom="39dp"
         android:backgroundTint="#97A2FF"
         android:onClick="goBack"
-        android:text="back to creating an account"
+        android:text="@string/buttonBack"
         android:textColor="#050505"
         app:iconTint="#0C0A0A"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -152,15 +153,24 @@
         android:layout_height="30dp"
         android:layout_marginStart="130dp"
         android:layout_marginTop="413dp"
-        android:layout_marginEnd="131dp"
         android:layout_marginBottom="297dp"
-        android:text="remember me"
+        android:text="@string/checkbox"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="340dp"
+        android:text="remember me"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    
 
 </androidx.constraintlayout.widget.ConstraintLayout>

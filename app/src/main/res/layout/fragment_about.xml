@@ -22,13 +22,13 @@
         app:srcCompat="@mipmap/ic_my_launcher_foreground" />
 
     <TextView
-        android:id="@+id/text_title"
+        android:id="@+id/text_title1"
         android:layout_width="236dp"
         android:layout_height="35dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="193dp"
         android:layout_marginBottom="512dp"
-        android:text="Your Click Away App"
+        android:text="@string/AboutTextTitle1"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#97A2FF"
@@ -45,7 +45,7 @@
         android:layout_marginStart="122dp"
         android:layout_marginTop="228dp"
         android:layout_marginBottom="477dp"
-        android:text="Version v.0.0.1"
+        android:text="@string/AboutTextTitle3"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#000000"
@@ -58,15 +58,17 @@
         android:id="@+id/text_title2"
         android:layout_width="166dp"
         android:layout_height="35dp"
+        android:layout_marginStart="258dp"
         android:layout_marginTop="193dp"
         android:layout_marginBottom="512dp"
-        android:text="  for Android"
+        android:text="@string/AboutTextTitle2"
         android:textAlignment="textStart"
         android:textAllCaps="false"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -76,7 +78,7 @@
         android:layout_marginStart="63dp"
         android:layout_marginTop="343dp"
         android:layout_marginBottom="346dp"
-        android:text="2021 YourClickAwayApp Team All rights reserved."
+        android:text="@string/AboutTextTitle4"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#000000"

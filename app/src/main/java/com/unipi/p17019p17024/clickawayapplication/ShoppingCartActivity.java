@@ -172,7 +172,7 @@ public class ShoppingCartActivity extends AppCompatActivity implements LocationL
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
         }
 
-        beforeOrderMessage("Order confirmation", "Are you sure you want to submit your order?");
+        beforeOrderMessage(getResources().getString(R.string.beforeOrderMessageTitle), getResources().getString(R.string.beforeOrderMessageMessage));
     }
 
     @Override
@@ -259,7 +259,7 @@ public class ShoppingCartActivity extends AppCompatActivity implements LocationL
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
                     // we are showing that error message in toast
-                    Toast.makeText(ShoppingCartActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ShoppingCartActivity.this, getResources().getString(R.string.errorToast), Toast.LENGTH_LONG).show();
                 }
             });
 
@@ -300,7 +300,7 @@ public class ShoppingCartActivity extends AppCompatActivity implements LocationL
                                     // all products (and their quantity) are available in the corresponding store
                                     if (isOrderSubmittable) {
                                         //displaying message to user
-                                        afterOrderMessage("Order submitted successfully!", "Based on your current location, you can pick up your order from " + storesArray[0] + "'s store tomorrow (between 9.00 AM to 5:00 PM).");
+                                        afterOrderMessage(getResources().getString(R.string.afterOrderMessageTitle), getResources().getString(R.string.afterOrderMessageMessage1_1) + storesArray[0] + getResources().getString(R.string.afterOrderMessageMessage1_2));
 
                                         //updating database
                                         for (DataSnapshot dsp3 : snapshot.getChildren()) {
@@ -316,8 +316,8 @@ public class ShoppingCartActivity extends AppCompatActivity implements LocationL
                                         }
                                     } else {
                                         //displaying message to user
-                                        afterOrderMessage("Order submitted successfully!", "Based on your current location, you will pick up your order from " + storesArray[0] + "'s store.\n" +
-                                                "Some of the products you ordered are currently available. You will be notified via email, to pick them up, once they are available.");
+                                        afterOrderMessage(getResources().getString(R.string.afterOrderMessageTitle), getResources().getString(R.string.afterOrderMessageMessage2_1) + storesArray[0] + getResources().getString(R.string.afterOrderMessageMessage2_2) +
+                                                getResources().getString(R.string.afterOrderMessageMessage2_3));
 
                                         //updating database
                                         for (DataSnapshot dsp4 : snapshot.getChildren()) {
@@ -344,7 +344,8 @@ public class ShoppingCartActivity extends AppCompatActivity implements LocationL
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
                     // we are showing that error message in toast
-                    Toast.makeText(ShoppingCartActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ShoppingCartActivity.this, getResources().getString(R.string.errorToast), Toast.LENGTH_LONG).show();
+
                 }
             });
 
@@ -373,17 +374,17 @@ public class ShoppingCartActivity extends AppCompatActivity implements LocationL
                 .setTitle(title)
                 .setMessage(message)
                 .setIcon(R.mipmap.ic_my_launcher)
-                .setNegativeButton("No", (dialog, which) -> {
+                .setNegativeButton(getResources().getString(R.string.noButton), (dialog, which) -> {
                     updateOrders = false;
                 })
-                .setPositiveButton("Yes", (dialog, which) -> {
+                .setPositiveButton(getResources().getString(R.string.yesButton), (dialog, which) -> {
                     updateOrders = true;
                 })
-                .setNeutralButton("Tap to speak", (dialog, which) -> {
+                .setNeutralButton(getResources().getString(R.string.speechButton), (dialog, which) -> {
                     //speech recognition
                     Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
                     intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-                    intent.putExtra(RecognizerIntent.EXTRA_PROMPT,"Please say 'Yes' or 'No'");
+                    intent.putExtra(RecognizerIntent.EXTRA_PROMPT,getResources().getString(R.string.speechRecogn));
                     startActivityForResult(intent,REC_RESULT);
                 })
                 .show();
@@ -410,14 +411,14 @@ public class ShoppingCartActivity extends AppCompatActivity implements LocationL
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==REC_RESULT && resultCode==RESULT_OK){
             ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-            if (matches.contains("yes") || matches.contains("Yes")) {
+            if (matches.contains("yes") || matches.contains("Yes") || matches.contains("Ναι") || matches.contains("ναι")) {
                 updateOrders = true;
             }
-            else if(matches.contains("no") || matches.contains("No")){
+            else if(matches.contains("no") || matches.contains("No") || matches.contains("Όχι") || matches.contains("οχι")){
                 updateOrders = false;
             }
             else{
-                afterOrderMessage("Didn't catch that", "Please, try again!");
+                afterOrderMessage(getResources().getString(R.string.speechRecognResultTitle), getResources().getString(R.string.speechRecognResultMessage));
             }
         }
     }

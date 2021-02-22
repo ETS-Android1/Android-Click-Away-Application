@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="108dp"
             android:layout_marginTop="16dp"
-            android:text="Quantity:"
+            android:text="@string/quantityLabel"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -66,12 +66,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/loginTitle1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="110dp"
             android:layout_marginTop="16dp"
-            android:text="Name: "
+            android:text="@string/nameLabel"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -86,7 +86,7 @@
             android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/textView1"
+            app:layout_constraintStart_toEndOf="@+id/loginTitle1"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -95,10 +95,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="110dp"
             android:layout_marginTop="16dp"
-            android:text="Type:"
+            android:text="@string/typeLabel"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView1" />
+            app:layout_constraintTop_toBottomOf="@+id/loginTitle1" />
 
         <TextView
             android:id="@+id/cart_type"
@@ -120,7 +120,7 @@
             android:layout_marginStart="110dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:text="Price:"
+            android:text="@string/priceLabel"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

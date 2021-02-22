@@ -130,8 +130,8 @@ public class MainActivity extends AppCompatActivity {
         TextView navUsername = headerView.findViewById(R.id.usernameTextView);
         TextView navEmail = headerView.findViewById(R.id.emailTextView);
         ImageButton imageButton = (ImageButton)headerView.findViewById(R.id.imageButton);
-        navUsername.setText(getIntent().getStringExtra("username"));
-        navEmail.setText(getIntent().getStringExtra("email"));
+        navUsername.setText(username);
+        navEmail.setText(email);
 
         imageButton.setOnClickListener(v -> {
             Intent galleryIntent = new Intent();
@@ -164,8 +164,8 @@ public class MainActivity extends AppCompatActivity {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
 
             if (resultCode == RESULT_OK) {
-                loadingBar.setTitle("Set Profile Image");
-                loadingBar.setMessage("Please wait, your profile image is updating...");
+                loadingBar.setTitle(getResources().getString(R.string.loadingBarTitle));
+                loadingBar.setMessage(getResources().getString(R.string.loadingBarMessage));
                 loadingBar.setCanceledOnTouchOutside(false);
                 loadingBar.show();
 
@@ -174,22 +174,23 @@ public class MainActivity extends AppCompatActivity {
 
                 StorageReference filepath = userProfileImageRef.child(userID + ".jpg");
                 filepath.getDownloadUrl().addOnSuccessListener(uri -> {
-                    showMessage("Hurray!","Profile image uploaded successfully");
+                    showMessage(getResources().getString(R.string.hurray),getResources().getString(R.string.profileImageUploadedSuccessfully));
                     final String downloadUrl = uri.toString();
 
                     database.child("Users").child(userID).child("image")
                             .setValue(downloadUrl)
                             .addOnCompleteListener(task1 -> {
                                 if(task1.isSuccessful()){
-                                    Toast.makeText(MainActivity.this, "Image saved", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(MainActivity.this, getResources().getString(R.string.imageSavedToast), Toast.LENGTH_LONG).show();
+
                                 }
                                 else{
                                     String message = Objects.requireNonNull(task1.getException()).toString();
-                                    showMessage("Profile image didn't save!","Error: "+ message);
+                                    showMessage(getResources().getString(R.string.errorSavingImageTitle),getResources().getString(R.string.errorSavingImageMessage)+ message);
                                 }
                                 loadingBar.dismiss();
                             });
-                }).addOnFailureListener(e -> showMessage("Profile image didn't update!","Error"));
+                }).addOnFailureListener(e -> showMessage(getResources().getString(R.string.errorSavingImageTitle),getResources().getString(R.string.errorSavingImageMessage)));
             }
         }
     }
@@ -215,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
                         // we are showing that error message in toast
-                        Toast.makeText(MainActivity.this, "Error Loading Image", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, getResources().getString(R.string.errorLoadingImageToast), Toast.LENGTH_LONG).show();
                     }
                 });
     }

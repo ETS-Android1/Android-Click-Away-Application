@@ -67,9 +67,9 @@ public class HomeFragment extends Fragment {
     private void setupViewPager(ViewPager viewPager) {
         Adapter adapter = new Adapter(getChildFragmentManager());
 
-        adapter.addFragment(new CoffeeFragment(), "Coffee");
-        adapter.addFragment(new BeveragesFragment(), "Beverages");
-        adapter.addFragment(new AccessoriesFragment(), "Accessories");
+        adapter.addFragment(new CoffeeFragment(), getResources().getString(R.string.coffee));
+        adapter.addFragment(new BeveragesFragment(), getResources().getString(R.string.beverages));
+        adapter.addFragment(new AccessoriesFragment(), getResources().getString(R.string.accessories));
 
         viewPager.setAdapter(adapter);
     }

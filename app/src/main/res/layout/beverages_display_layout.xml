@@ -41,12 +41,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/loginTitle1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="110dp"
             android:layout_marginTop="16dp"
-            android:text="Name: "
+            android:text="@string/name"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -62,7 +62,7 @@
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/textView1"
+            app:layout_constraintStart_toEndOf="@+id/loginTitle1"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -71,10 +71,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="110dp"
             android:layout_marginTop="16dp"
-            android:text="Type:"
+            android:text="@string/type"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView1" />
+            app:layout_constraintTop_toBottomOf="@+id/loginTitle1" />
 
         <TextView
             android:id="@+id/beverages_type"
@@ -96,7 +96,7 @@
             android:layout_marginStart="110dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:text="Price:"
+            android:text="@string/price"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

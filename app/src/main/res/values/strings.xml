@@ -1,15 +1,90 @@
 <resources>
     <string name="app_name">Your Click Away App</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_title" translatable="false">Android Studio</string>
+    <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
+    <string name="nav_header_desc" translatable="false">Navigation header</string>
+    <string name="action_settings" translatable="false">Settings</string>
 
+    <!--LogIn Activity-->
+    <string name="loginTitle1">Create an account</string>
+    <string name="loginTitle2">Enter your credentials</string>
+    <string name="editTextEmail">Enter email</string>
+    <string name="editTextPassword">Enter password</string>
+    <string name="editTextUsername">Enter a username</string>
+    <string name="checkbox">remember me</string>
+    <string name="signInButton">Sign in</string>
+    <string name="signUpButton">Sign up</string>
+    <string name="textView2">Already have an account?</string>
+    <string name="buttonBack">back to creating an account</string>
+    <string name="errorToast2">One or more fields are empty!</string>
+    <string name="signUpToast">Sign-up successful!</string>
+    <string name="loginToast">Log-in successful!</string>
+    <string name="userCratedToast">User created</string>
+
+    <!--Main Activity-->
+    <string name="tabbed1">Home</string>
+    <string name="name">Name:</string>
+    <string name="type">Type:</string>
+    <string name="price">Price:</string>
+    <string name="signOut">Sign Out</string>
+    <string name="total">Total:</string>
+    <string name="buttonAddToCart">Add to cart</string>
+    <string name="AboutTextTitle1">Your Click Away App</string>
+    <string name="AboutTextTitle2">  for Android</string>
+    <string name="AboutTextTitle3">Version v.0.0.1</string>
+    <string name="AboutTextTitle4">2021 YourClickAwayApp Team All rights reserved.</string>
+    <string name="imageSavedToast">Image Saved</string>
+    <string name="errorLoadingImageToast">Error loading image</string>
+    <!--alertDialogs-->
+    <string name="profileImageUploadedSuccessfully">Profile image uploaded successfully</string>
+    <string name="hurray">Hurray!</string>
+    <string name="loadingBarTitle">Set Profile Image</string>
+    <string name="loadingBarMessage">Please wait, your profile image is updating..</string>
+    <string name="errorSavingImageTitle">Profile image did not save!</string>
+    <string name="errorSavingImageMessage">Error: </string>
+
+
+    <!--Favorites Activity-->
+    <string name="titleFavorites">No favorite products yet</string>
+
+    <!--ShoppingCart Activity-->
+    <string name="nameLabel">Name:</string>
+    <string name="typeLabel">Type:</string>
+    <string name="quantityLabel">Quantity:</string>
+    <string name="priceLabel">Price:</string>
+    <string name="textViewEmptyCartTitle">Your cart is currently empty</string>
+    <string name="textViewCartTitle">This is your cart</string>
+    <string name="buttonEmptyCart">Add an item to your cart</string>
+    <string name="buttonSubmitOrder">Submit Order</string>
+    <string name="errorToast">Error</string>
+    <!--alertDialogs-->
+    <string name="beforeOrderMessageTitle">Order confirmation</string>
+    <string name="beforeOrderMessageMessage">Are you sure you want to submit your order?</string>
+    <string name="afterOrderMessageTitle">Order submitted successfully!</string>
+    <string name="afterOrderMessageMessage1.1">Based on your current location, you can pick up your order from </string>
+    <string name="afterOrderMessageMessage1.2">\'s store tomorrow (between 9.00 AM to 5:00 PM).</string>
+    <string name="afterOrderMessageMessage2.1">Based on your current location, you will pick up your order from </string>
+    <string name="afterOrderMessageMessage2.2">\'s store.</string>
+    <string name="afterOrderMessageMessage2.3">Some of the products you ordered are currently unavailable. You will be notified via email, to pick them up, once they are available.</string>
+    <string name="noButton">No</string>
+    <string name="yesButton">Yes</string>
+    <string name="speechButton">Tap to speak</string>
+    <string name="speechRecogn">Please say Yes or No</string>
+    <string name="speechRecognResultTitle">Did not catch that</string>
+    <string name="speechRecognResultMessage">Please, try again!</string>
+
+
+    <!--Tabbed categories-->
+    <string name="coffee">Coffee</string>
+    <string name="beverages">Beverages</string>
+    <string name="accessories">Accessories</string>
+
+    <!--Activity main drawer-->
     <string name="menu_home">Home</string>
     <string name="menu_maps">Maps</string>
     <string name="menu_about">About</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 </resources>

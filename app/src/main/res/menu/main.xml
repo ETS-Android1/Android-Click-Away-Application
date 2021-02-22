@@ -6,7 +6,7 @@
         android:id="@+id/signOut"
         android:onClick="signOut"
         android:orderInCategory="100"
-        android:title="Sign Out" />
+        android:title="@string/signOut" />
 
     <item
         android:id="@+id/favorites"
