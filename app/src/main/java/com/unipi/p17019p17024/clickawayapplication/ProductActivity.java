@@ -9,12 +9,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 public class ProductActivity extends AppCompatActivity {
@@ -23,8 +27,9 @@ public class ProductActivity extends AppCompatActivity {
     Double totalPrice;
 
     //Πώς το ξέρω ότι είναι false αρχικά;;;
-    //Μήπως πρέπει κάθε φορά να ελέγχω αν υπάρχει το productID στο Favourites της Firebase;
-    Boolean isAddedToFavourites;
+    //Μήπως πρέπει κάθε φορά να ελέγχω αν υπάρχει το productID στο Favorites της Firebase;
+    Boolean isAddedToFavorites;
+    Boolean isFavoritesClicked = false;
 
     //
     //textView
@@ -44,7 +49,7 @@ public class ProductActivity extends AppCompatActivity {
     Button buttonAddToCart;
 
     //Database Firebase
-    DatabaseReference database;
+    DatabaseReference database, userIDRef;
 
     //User Authentication
     public FirebaseAuth mAuth;
@@ -114,8 +119,27 @@ public class ProductActivity extends AppCompatActivity {
 
 
         //
-        //Check if product is on Favourites in Firebase
+        //Check if product is on Favorites in Firebase
         //
+        userID = currentUser.getUid();
+
+
+
+        userIDRef = FirebaseDatabase.getInstance().getReference().child("Favorites").child(userID);
+
+        userIDRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists() && snapshot.hasChild(productID)){
+                    imageButtonFavourites.setImageResource(R.mipmap.ic_heart_red);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
 
@@ -139,12 +163,41 @@ public class ProductActivity extends AppCompatActivity {
     }
 
     public void favouritesClick(View v) {
+        isFavoritesClicked = false;
+        userID = currentUser.getUid();
 
-        database.child("Cart").child(userID).child(productID).child("id").setValue(productID);
-        database.child("Cart").child(userID).child(productID).child("name").setValue(productName);
-        database.child("Cart").child(userID).child(productID).child("price").setValue(productPrice);
-        database.child("Cart").child(userID).child(productID).child("type").setValue(productType);
-        database.child("Cart").child(userID).child(productID).child("image").setValue(productImage);
+        userIDRef = FirebaseDatabase.getInstance().getReference().child("Favorites").child(userID);
+
+        userIDRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (!isFavoritesClicked) {
+                    if (snapshot.hasChild(productID)) {
+                        //deleting product from user's favorites
+                        database.child("Favorites").child(userID).child(productID).removeValue();
+
+                        imageButtonFavourites.setImageResource(R.mipmap.ic_heart_blank);
+                    } else {
+                        //adding product from user's favorites
+                        database.child("Favorites").child(userID).child(productID).child("id").setValue(productID);
+                        database.child("Favorites").child(userID).child(productID).child("name").setValue(productName);
+                        database.child("Favorites").child(userID).child(productID).child("type").setValue(productType);
+                        database.child("Favorites").child(userID).child(productID).child("image").setValue(productImage);
+
+                        imageButtonFavourites.setImageResource(R.mipmap.ic_heart_red);
+                    }
+
+                    isFavoritesClicked = true;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
     }
 
     public void minusClick(View v) {

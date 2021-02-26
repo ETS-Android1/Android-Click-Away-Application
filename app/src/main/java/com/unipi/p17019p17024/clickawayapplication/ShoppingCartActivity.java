@@ -42,8 +42,9 @@ import java.util.List;
 
 public class ShoppingCartActivity extends AppCompatActivity implements LocationListener {
     String userID, email, username;
+    Double total = 0.0;
 
-    TextView textViewEmptyCartTitle, textViewCartTitle;
+    TextView textViewEmptyCartTitle, textViewCartTitle, textViewTotalPrice2, textViewTotalTitle2, textViewTotalEuroSymbol2;
     ImageButton imageButtonDeleteFromCart;
     Button buttonSubmitOrder, buttonEmptyCart;
     ImageView imageViewEmptyCart;
@@ -89,6 +90,9 @@ public class ShoppingCartActivity extends AppCompatActivity implements LocationL
         imageViewEmptyCart = findViewById(R.id.imageViewEmptyCart);
         buttonSubmitOrder = findViewById(R.id.buttonSubmitOrder);
         buttonEmptyCart = findViewById(R.id.buttonEmptyCart);
+        textViewTotalTitle2 = findViewById(R.id.textViewTotalTitle2);
+        textViewTotalPrice2 = findViewById(R.id.textViewTotalPrice2);
+        textViewTotalEuroSymbol2 = findViewById(R.id.textViewTotalEuroSymbol2);
 
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
@@ -126,6 +130,7 @@ public class ShoppingCartActivity extends AppCompatActivity implements LocationL
         recyclerView.setAdapter(adapter);
 
 
+
         //
         //If the user has items in cart: Visibility of buttons, textViews etc.
         //
@@ -140,6 +145,16 @@ public class ShoppingCartActivity extends AppCompatActivity implements LocationL
                     imageViewEmptyCart.setVisibility(View.INVISIBLE);
                     buttonEmptyCart.setVisibility(View.INVISIBLE);
                     buttonSubmitOrder.setVisibility(View.VISIBLE);
+                    textViewTotalTitle2.setVisibility(View.VISIBLE);
+                    textViewTotalPrice2.setVisibility(View.VISIBLE);
+                    textViewTotalEuroSymbol2.setVisibility(View.VISIBLE);
+
+                    //Calculate total cart price
+                    for (DataSnapshot dsp : mySnapshot.getChildren()) {
+                        total = total + Double.parseDouble(dsp.child("total price").getValue().toString());
+                    }
+                    textViewTotalPrice2.setText(total.toString());
+                    total = 0.0;
                 }
                 else {
                     textViewCartTitle.setVisibility(View.INVISIBLE);
@@ -147,6 +162,9 @@ public class ShoppingCartActivity extends AppCompatActivity implements LocationL
                     imageViewEmptyCart.setVisibility(View.VISIBLE);
                     buttonEmptyCart.setVisibility(View.VISIBLE);
                     buttonSubmitOrder.setVisibility(View.INVISIBLE);
+                    textViewTotalTitle2.setVisibility(View.INVISIBLE);
+                    textViewTotalPrice2.setVisibility(View.INVISIBLE);
+                    textViewTotalEuroSymbol2.setVisibility(View.INVISIBLE);
                 }
             }
 
@@ -155,7 +173,6 @@ public class ShoppingCartActivity extends AppCompatActivity implements LocationL
 
             }
         });
-
 
     }
 
@@ -218,9 +235,6 @@ public class ShoppingCartActivity extends AppCompatActivity implements LocationL
                     }
                 }
             }
-
-            //Toast.makeText(this,"Smallest distance is:" +distancesArray[0] +"\nStore is: "+ storesArray[0], Toast.LENGTH_LONG).show();
-
 
 
             //
@@ -448,5 +462,13 @@ public class ShoppingCartActivity extends AppCompatActivity implements LocationL
         startActivity(intent);
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+        intent.putExtra("userID", currentUser.getUid());
+        intent.putExtra("email", currentUser.getEmail());
+        intent.putExtra("username",currentUser.getDisplayName());
+        startActivity(intent);
+    }
 
 }

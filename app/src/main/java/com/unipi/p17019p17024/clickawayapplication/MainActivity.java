@@ -303,6 +303,8 @@ public class MainActivity extends AppCompatActivity {
     public void favoritesOnClick(MenuItem menuItem){
         Intent intent = new Intent(getApplicationContext(), FavoritesActivity.class);
         intent.putExtra("userID", userID);
+        intent.putExtra("email", email);
+        intent.putExtra("username", username);
         startActivity(intent);
     }
 

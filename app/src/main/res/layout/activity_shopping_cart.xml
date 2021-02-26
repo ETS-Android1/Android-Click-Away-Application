@@ -8,6 +8,48 @@
     android:backgroundTint="#FFFFFF"
     tools:context=".ShoppingCartActivity">
 
+    <TextView
+        android:id="@+id/textViewTotalTitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/total"
+        android:textAlignment="center"
+        android:textSize="28sp"
+        android:textStyle="normal"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewTotalPrice2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="000.0"
+        android:textAlignment="center"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewTotalTitle2" />
+
+    <TextView
+        android:id="@+id/textViewTotalEuroSymbol2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginBottom="10dp"
+        android:text="€"
+        android:textAlignment="center"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewTotalPrice2" />
+
     <Button
         android:id="@+id/buttonEmptyCart"
         android:layout_width="270dp"
@@ -74,10 +116,8 @@
     <Button
         android:id="@+id/buttonSubmitOrder"
         android:layout_width="170dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginEnd="121dp"
-        android:layout_marginBottom="2dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="10dp"
         android:backgroundTint="#61C665"
         android:onClick="submitOrder"
         android:text="@string/buttonSubmitOrder"
@@ -85,7 +125,6 @@
         android:textSize="18sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

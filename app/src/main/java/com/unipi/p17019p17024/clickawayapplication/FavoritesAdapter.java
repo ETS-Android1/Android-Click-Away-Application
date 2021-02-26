@@ -22,8 +22,8 @@ import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class CartAdapter extends FirebaseRecyclerAdapter<
-        Cart, CartAdapter.CartViewholder> {
+public class FavoritesAdapter extends FirebaseRecyclerAdapter<
+        Favorites, FavoritesAdapter.FavoritesViewholder> {
 
     //User Authentication
     public FirebaseAuth mAuth;
@@ -31,8 +31,8 @@ public class CartAdapter extends FirebaseRecyclerAdapter<
 
     private DatabaseReference userIDRef;
 
-    public CartAdapter(
-            @NonNull FirebaseRecyclerOptions<Cart> options)
+    public FavoritesAdapter(
+            @NonNull FirebaseRecyclerOptions<Favorites> options)
     {
         super(options);
     }
@@ -40,8 +40,8 @@ public class CartAdapter extends FirebaseRecyclerAdapter<
 
     @Override
     protected void
-    onBindViewHolder(@NonNull CartViewholder holder,
-                     int position, @NonNull Cart model)
+    onBindViewHolder(@NonNull FavoritesAdapter.FavoritesViewholder holder,
+                     int position, @NonNull Favorites model)
     {
         //User Authentication
         mAuth = FirebaseAuth.getInstance();
@@ -51,7 +51,7 @@ public class CartAdapter extends FirebaseRecyclerAdapter<
 
 
 
-        userIDRef = FirebaseDatabase.getInstance().getReference().child("Cart").child(userID);
+        userIDRef = FirebaseDatabase.getInstance().getReference().child("Favorites").child(userID);
 
         String productIDs = getRef(position).getKey();
 
@@ -68,20 +68,15 @@ public class CartAdapter extends FirebaseRecyclerAdapter<
 
                     String pName = snapshot.child("name").getValue().toString();
                     String pType = snapshot.child("type").getValue().toString();
-                    String pQuantity = snapshot.child("quantity").getValue().toString();
-                    String pTotalPrice = snapshot.child("total price").getValue().toString();
 
                     holder.productName.setText(pName);
                     holder.productType.setText(pType);
-                    holder.productQuantity.setText(pQuantity);
-                    holder.productPrice.setText(pTotalPrice);
 
 
-                    //Delete from cart Button
-                    holder.imageButtonDeleteFromCart.setOnClickListener(new View.OnClickListener() {
+                    //Delete from favorites Button
+                    holder.imageButtonDeleteFromFavorites.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-
                             userIDRef.child(productIDs).removeValue();
                         }
                     });
@@ -104,37 +99,30 @@ public class CartAdapter extends FirebaseRecyclerAdapter<
 
     @NonNull
     @Override
-    public CartViewholder
+    public FavoritesViewholder
     onCreateViewHolder(@NonNull ViewGroup parent,
                        int viewType)
     {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.cart, parent, false);
-        return new CartAdapter.CartViewholder(view);
+                .inflate(R.layout.favorites, parent, false);
+        return new FavoritesAdapter.FavoritesViewholder(view);
     }
 
 
-    class CartViewholder extends RecyclerView.ViewHolder {
-        TextView productName, productType, productQuantity, productPrice;/*, textViewEmptyCartTitle*/
+    class FavoritesViewholder extends RecyclerView.ViewHolder {
+        TextView productName, productType;
         CircleImageView productImage;
-        ImageButton imageButtonDeleteFromCart;
-        //Button buttonSubmitOrder;
-        //ImageView imageViewEmptyCart;
+        ImageButton imageButtonDeleteFromFavorites;
 
-        public CartViewholder(@NonNull View itemView)
+        public FavoritesViewholder(@NonNull View itemView)
         {
             super(itemView);
 
-            productName = itemView.findViewById(R.id.cart_name);
-            productType = itemView.findViewById(R.id.cart_type);
-            productQuantity = itemView.findViewById(R.id.cart_quantity);
-            productPrice = itemView.findViewById(R.id.cart_price);
-            productImage = itemView.findViewById(R.id.cart_profile_image);
-            imageButtonDeleteFromCart = itemView.findViewById(R.id.imageButtonDeleteFromCart);
+            productName = itemView.findViewById(R.id.favorites_name);
+            productType = itemView.findViewById(R.id.favorites_type);
+            productImage = itemView.findViewById(R.id.favorites_profile_image);
+            imageButtonDeleteFromFavorites = itemView.findViewById(R.id.imageButtonDeleteFromFavorites);
 
-            //textViewEmptyCartTitle = itemView.findViewById(R.id.textViewEmptyCartTitle);
-            //imageViewEmptyCart = itemView.findViewById(R.id.imageViewEmptyCart);
-            //buttonSubmitOrder = itemView.findViewById(R.id.buttonSubmitOrder);
         }
     }
 

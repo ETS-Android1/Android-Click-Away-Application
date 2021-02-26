@@ -1,7 +1,5 @@
 package com.unipi.p17019p17024.clickawayapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,6 +10,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -86,7 +86,7 @@ public class LogInActivity extends AppCompatActivity {
                                 createUsername(editTextTextUsername.getText().toString(), currentUser);
 
                                 isSignInPushed = false;
-                                writeSP(isSignInPushed); //writeSP(view, isSignInPushed);
+                                writeSP(isSignInPushed);
 
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                 intent.putExtra("userID", currentUser.getUid());
