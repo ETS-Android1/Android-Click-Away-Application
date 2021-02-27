@@ -314,7 +314,7 @@ public class ShoppingCartActivity extends AppCompatActivity implements LocationL
                                     // all products (and their quantity) are available in the corresponding store
                                     if (isOrderSubmittable) {
                                         //displaying message to user
-                                        afterOrderMessage(getResources().getString(R.string.afterOrderMessageTitle), getResources().getString(R.string.afterOrderMessageMessage1_1) + storesArray[0] + getResources().getString(R.string.afterOrderMessageMessage1_2));
+                                        afterOrderMessage(getResources().getString(R.string.afterOrderMessageTitle), getResources().getString(R.string.afterOrderMessageMessage1_1) +" "+ storesArray[0] + getResources().getString(R.string.afterOrderMessageMessage1_2));
 
                                         //updating database
                                         for (DataSnapshot dsp3 : snapshot.getChildren()) {
@@ -330,7 +330,7 @@ public class ShoppingCartActivity extends AppCompatActivity implements LocationL
                                         }
                                     } else {
                                         //displaying message to user
-                                        afterOrderMessage(getResources().getString(R.string.afterOrderMessageTitle), getResources().getString(R.string.afterOrderMessageMessage2_1) + storesArray[0] + getResources().getString(R.string.afterOrderMessageMessage2_2) +
+                                        afterOrderMessage(getResources().getString(R.string.afterOrderMessageTitle), getResources().getString(R.string.afterOrderMessageMessage2_1) +" "+ storesArray[0] + getResources().getString(R.string.afterOrderMessageMessage2_2) +
                                                 getResources().getString(R.string.afterOrderMessageMessage2_3));
 
                                         //updating database
