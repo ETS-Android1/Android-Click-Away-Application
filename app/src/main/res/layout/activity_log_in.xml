@@ -166,7 +166,7 @@
         android:layout_height="30dp"
         android:layout_marginStart="130dp"
         android:layout_marginTop="340dp"
-        android:text="remember me"
+        android:text="@string/checkbox"
         android:textSize="18sp"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"

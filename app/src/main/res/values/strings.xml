@@ -48,6 +48,8 @@
 
     <!--Favorites Activity-->
     <string name="titleFavorites">No favorite products yet</string>
+    <string name="backToHomeButton">Back to Home</string>
+    <string name="title2Favorites">Your favorites</string>
 
     <!--ShoppingCart Activity-->
     <string name="nameLabel">Name:</string>

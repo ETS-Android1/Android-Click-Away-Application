@@ -64,4 +64,6 @@
     <string name="signUpToast">Η εγγραφή ήταν επιτυχής!</string>
     <string name="loginToast">Επιτυχής σύνδεση!</string>
     <string name="userCratedToast">Ο χρήστης δημιουργήθηκε</string>
+    <string name="backToHomeButton">Πίσω στην αρχική</string>
+    <string name="title2Favorites">Αγαπημένα</string>
 </resources>
