@@ -46,8 +46,9 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     Button button1;
-
+    ImageButton imageButton;
     String userID, email, username;
+    TextView navUsername, navEmail;
 
 
     LocationManager locationManager;
@@ -127,9 +128,9 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
         View headerView = navigationView.getHeaderView(0);
-        TextView navUsername = headerView.findViewById(R.id.usernameTextView);
-        TextView navEmail = headerView.findViewById(R.id.emailTextView);
-        ImageButton imageButton = (ImageButton)headerView.findViewById(R.id.imageButton);
+        navUsername = headerView.findViewById(R.id.usernameTextView);
+        navEmail = headerView.findViewById(R.id.emailTextView);
+        imageButton = headerView.findViewById(R.id.imageButton);
         navUsername.setText(username);
         navEmail.setText(email);
 
@@ -196,9 +197,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getUserProfileImage(){
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
-        ImageButton imageButton = (ImageButton)headerView.findViewById(R.id.imageButton);
+        ImageButton imageButton = headerView.findViewById(R.id.imageButton);
 
         database.child("Users").child(userID)
                 .addValueEventListener(new ValueEventListener(){
