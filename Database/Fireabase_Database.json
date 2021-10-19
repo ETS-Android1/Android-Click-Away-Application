@@ -1,0 +1,717 @@
+{
+  "Cart" : {
+    "tXNC7Hs6efZh02Pa9MPnVYRCB162" : {
+      "a4" : {
+        "id" : "a4",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fa4.png?alt=media&token=33392557-c1cf-4355-8b5a-8f657d770e55",
+        "name" : "White Coffee Mug 250g",
+        "quantity" : 2,
+        "total price" : 31,
+        "type" : "Life Style"
+      },
+      "b0" : {
+        "id" : "b0",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fb0.png?alt=media&token=f4227c45-6226-4085-84db-b5da7d4e4de9",
+        "name" : "Chocolate Sweet 250g",
+        "quantity" : 2,
+        "total price" : 5.8,
+        "type" : "Chocolate"
+      },
+      "b1" : {
+        "id" : "b1",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fb1.png?alt=media&token=f11f9e8f-5bbe-4f29-8f99-ed74d6e24f2a",
+        "name" : "Chocolate Salted Caramel 250g",
+        "quantity" : 4,
+        "total price" : 18,
+        "type" : "Chocolate"
+      },
+      "c0" : {
+        "id" : "c0",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fc0.png?alt=media&token=f85d4c80-578a-41ad-a90f-61b28163327d",
+        "name" : "Espresso Dark Roast 250g",
+        "quantity" : 2,
+        "total price" : 14.4,
+        "type" : "Espresso"
+      }
+    }
+  },
+  "Favorites" : {
+    "tXNC7Hs6efZh02Pa9MPnVYRCB162" : {
+      "b0" : {
+        "id" : "b0",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fb0.png?alt=media&token=f4227c45-6226-4085-84db-b5da7d4e4de9",
+        "name" : "Chocolate Sweet 250g",
+        "type" : "Chocolate"
+      }
+    }
+  },
+  "Orders" : {
+    "-MUDAKeei-QFAeYulF7w" : {
+      "Date added" : "23-02-2021",
+      "Latitude" : 37.421998333333335,
+      "Longitude" : -122.08400000000002,
+      "Store" : "Ilion",
+      "products" : {
+        "a0" : {
+          "quantity" : "2"
+        },
+        "c0" : {
+          "quantity" : "3"
+        }
+      },
+      "userID" : "tpX6KLNTJTSzwY7EReS9f5sg9Fp2"
+    }
+  },
+  "Products" : {
+    "Accessories" : {
+      "a0" : {
+        "id" : "a0",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fa0.png?alt=media&token=640db473-cae7-48a5-8085-4843706494cd",
+        "name" : "Reusable Coffee Mug 500g",
+        "price" : 15.9,
+        "type" : "Life Style"
+      },
+      "a1" : {
+        "id" : "a1",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fa1.png?alt=media&token=120b1b84-6981-4d77-9da3-ae13c0576690",
+        "name" : "Thermos Black 500g",
+        "price" : 24.9,
+        "type" : "Life Style"
+      },
+      "a2" : {
+        "id" : "a2",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fa2.png?alt=media&token=681e44eb-2708-4763-a8f0-7ff44224311b",
+        "name" : "Thermos White 500g",
+        "price" : 24.9,
+        "type" : "Life Style"
+      },
+      "a3" : {
+        "id" : "a3",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fa3.png?alt=media&token=ac46626d-0981-4d0d-832e-790a614aece9",
+        "name" : "Coffee Canister 250g",
+        "price" : 11,
+        "type" : "Life Style"
+      },
+      "a4" : {
+        "id" : "a4",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fa4.png?alt=media&token=33392557-c1cf-4355-8b5a-8f657d770e55",
+        "name" : "White Coffee Mug 250g",
+        "price" : 15.5,
+        "type" : "Life Style"
+      },
+      "a5" : {
+        "id" : "a5",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fa5.png?alt=media&token=a03b21b3-46ed-4c02-b507-aa8e33d87fa0",
+        "name" : "Black Coffee Mug 250g",
+        "price" : 15.5,
+        "type" : "Life Style"
+      },
+      "a6" : {
+        "id" : "a6",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fa6.png?alt=media&token=2e3d07f5-ad72-42c1-a64a-a1c8205744c9",
+        "name" : "Ceramic Coffee Grinder 150g",
+        "price" : 41.4,
+        "type" : "Coffee Makers"
+      }
+    },
+    "Beverages" : {
+      "b0" : {
+        "id" : "b0",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fb0.png?alt=media&token=f4227c45-6226-4085-84db-b5da7d4e4de9",
+        "name" : "Chocolate Sweet 250g",
+        "price" : 2.9,
+        "type" : "Chocolate"
+      },
+      "b1" : {
+        "id" : "b1",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fb1.png?alt=media&token=f11f9e8f-5bbe-4f29-8f99-ed74d6e24f2a",
+        "name" : "Chocolate Salted Caramel 250g",
+        "price" : 4.5,
+        "type" : "Chocolate"
+      },
+      "b2" : {
+        "id" : "b2",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fb2.png?alt=media&token=37355cff-ca9f-45c1-89e9-b96bf4561796",
+        "name" : "Chocolate Strawberry 250g",
+        "price" : 3.5,
+        "type" : "Chocolate"
+      },
+      "b3" : {
+        "id" : "b3",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fb3.png?alt=media&token=c88c6736-93ec-416f-8b6f-0d60afac92f7",
+        "name" : "Green Tea 250g",
+        "price" : 5.2,
+        "type" : "Tea"
+      },
+      "b4" : {
+        "id" : "b4",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fb4.png?alt=media&token=57b83abd-c0da-432f-80c1-e3b287610a1d",
+        "name" : "Ginger Blend Herbal Tea 250g",
+        "price" : 6.8,
+        "type" : "Tea"
+      },
+      "b5" : {
+        "id" : "b5",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fb5.png?alt=media&token=58853746-b73f-4b76-8216-b85197f0162c",
+        "name" : "Cinnamon Spicy Herbal Tea 250g",
+        "price" : 6.8,
+        "type" : "Tea"
+      }
+    },
+    "Coffee" : {
+      "c0" : {
+        "id" : "c0",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fc0.png?alt=media&token=f85d4c80-578a-41ad-a90f-61b28163327d",
+        "name" : "Espresso Dark Roast 250g",
+        "price" : 7.2,
+        "type" : "Espresso"
+      },
+      "c1" : {
+        "id" : "c1",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fc1.png?alt=media&token=879753c9-3d84-489f-9efc-14e048f82dd3",
+        "name" : "Espresso Medium Roast 250g",
+        "price" : 6.1,
+        "type" : "Espresso"
+      },
+      "c2" : {
+        "id" : "c2",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fc2.png?alt=media&token=197da028-2a28-4a43-a195-aa923996f371",
+        "name" : "Vanilla Flavoured Coffee 250g",
+        "price" : 4.2,
+        "type" : "Filter"
+      },
+      "c3" : {
+        "id" : "c3",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fc3.png?alt=media&token=98e9e4be-dee3-493f-8df7-b4730fb60547",
+        "name" : "Hazelnut Flavoured Coffee 250g",
+        "price" : 4.2,
+        "type" : "Filter"
+      },
+      "c4" : {
+        "id" : "c4",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fc4.png?alt=media&token=8512e5b2-0869-4f03-8023-470bdfbfdc08",
+        "name" : "Caramel Flavoured Coffee 250g",
+        "price" : 4.2,
+        "type" : "Filter"
+      },
+      "c5" : {
+        "id" : "c5",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fc5.png?alt=media&token=d4e97216-a498-44f0-91de-829940195c2c",
+        "name" : "Classic Greek Coffee 500g",
+        "price" : 5.0,
+        "type" : "Greek"
+      },
+      "c6" : {
+        "id" : "c6",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fc6.png?alt=media&token=0a9b707a-f819-4437-b38f-f9e3f0129a54",
+        "name" : "Special Greek Coffee 300g",
+        "price" : 5.0,
+        "type" : "Greek"
+      },
+      "c7" : {
+        "id" : "c7",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fc7.png?alt=media&token=6fec47c2-eb85-42fe-a9e9-cb8b75be8e05",
+        "name" : "Traditional Greek Coffee 350g",
+        "price" : 5.0,
+        "type" : "Greek"
+      },
+      "c8" : {
+        "id" : "c8",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fc8.png?alt=media&token=06bf7443-7a43-475f-a8cd-8ab07ada4367",
+        "name" : "Classic Instant Coffee 100g",
+        "price" : 4.8,
+        "type" : "Instant"
+      },
+      "c9" : {
+        "id" : "c9",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Product%20Images%2Fc9.png?alt=media&token=5ac512e0-b88b-4d21-b00d-9b877e3e781d",
+        "name" : "Espresso Decaf Coffee 250g",
+        "price" : 6,
+        "type" : "Decaf"
+      }
+    }
+  },
+  "Stores" : {
+    "Agia Paraskevi" : {
+      "contact email" : "agia_paraskevi@coffeeshop.gr",
+      "id" : "s5",
+      "latitude" : "38.013034",
+      "longitude" : "23.817960",
+      "products" : {
+        "a0" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a1" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a2" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a3" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a4" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a5" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b0" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b1" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b2" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b3" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b4" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b5" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c0" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c1" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c2" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c3" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c4" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c5" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c6" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c7" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c8" : {
+          "pending" : 0,
+          "quantity" : 5
+        }
+      }
+    },
+    "Glyfada" : {
+      "contact email" : "glyfada@coffeeshop.gr",
+      "id" : "s4",
+      "latitude" : "37.877499",
+      "longitude" : "23.755749",
+      "products" : {
+        "a0" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a1" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a2" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a3" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a4" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a5" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b0" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b1" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b2" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b3" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b4" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b5" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c0" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c1" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c2" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c3" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c4" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c5" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c6" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c7" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c8" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c9" : {
+          "pending" : 0,
+          "quantity" : 5
+        }
+      }
+    },
+    "Ilion" : {
+      "contact email" : "ilion@coffeeshop.gr",
+      "id" : "s2",
+      "latitude" : "38.034954",
+      "longitude" : "23.703296",
+      "products" : {
+        "a0" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a1" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a2" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a3" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a4" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a5" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b0" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b1" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b2" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b3" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b4" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b5" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c0" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c1" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c2" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c3" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c4" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c5" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c6" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c7" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c8" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c9" : {
+          "pending" : 0,
+          "quantity" : 5
+        }
+      }
+    },
+    "Piraeus" : {
+      "contact email" : "piraeus@coffeeshop.gr",
+      "id" : "s3",
+      "latitude" : "37.942260",
+      "longitude" : "23.650997",
+      "products" : {
+        "a0" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a1" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a2" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a3" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a4" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a5" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b0" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b1" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b2" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b3" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b4" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b5" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c0" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c1" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c2" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c3" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c4" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c5" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c6" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c7" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c8" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c9" : {
+          "pending" : 0,
+          "quantity" : 5
+        }
+      }
+    },
+    "Syntagma" : {
+      "contact email" : "syntagma@coffeeshop.gr",
+      "id" : "s1",
+      "latitude" : "37.976351",
+      "longitude" : "23.733375",
+      "products" : {
+        "a0" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a1" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a2" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a3" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a4" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "a5" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b0" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b1" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b2" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b3" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b4" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "b5" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c0" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c1" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c2" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c3" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c4" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c5" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c6" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c7" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c8" : {
+          "pending" : 0,
+          "quantity" : 5
+        },
+        "c9" : {
+          "pending" : 0,
+          "quantity" : 5
+        }
+      }
+    }
+  },
+  "Users" : {
+    "tpX6KLNTJTSzwY7EReS9f5sg9Fp2" : {
+      "image" : "https://firebasestorage.googleapis.com/v0/b/clickawayapplication.appspot.com/o/Profile%20Images%2FtpX6KLNTJTSzwY7EReS9f5sg9Fp2.jpg?alt=media&token=bc696e1e-924c-49fd-9fd3-725bd977623a"
+    }
+  }
+}
